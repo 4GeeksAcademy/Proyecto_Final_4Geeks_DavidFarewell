@@ -43,7 +43,7 @@ class UserMission(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('app_user.id'))
     mission_id = db.Column(db.Integer, db.ForeignKey('mission.id'))
-    status = db.Column(db.String(20))  # pending, in_progress, completed
+    status = db.Column(db.String(20))  # pending, in_progress, completed cambiar a int
     accepted_at = db.Column(db.DateTime, default=datetime.utcnow)
     completed_at = db.Column(db.DateTime)
     completion_percentage = db.Column(db.Integer)
@@ -98,3 +98,4 @@ class PasswordResetToken(db.Model):
     token = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     is_active = db.Column(db.Boolean, default=True)
+    #api externa flaskmail/sendgrip
