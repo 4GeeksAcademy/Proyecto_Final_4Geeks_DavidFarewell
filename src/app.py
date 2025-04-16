@@ -16,6 +16,7 @@ def create_app():
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "sqlite:///levelup.db")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["JWT_SECRET_KEY"] = os.getenv("SECRET_KEY", "super-secret")
+    app.secret_key = 'super secret key'
 
     # Inicialización de extensiones
     db.init_app(app)
