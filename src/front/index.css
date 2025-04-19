@@ -1,1 +1,123 @@
-/* Hola */
+.log_back{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.2), 
+        rgba(0, 0, 0, 0.5)
+      ),
+        url('src/assets/img/ChatGPT Image 19 abr 2025, 13_34_12.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.log_box{
+    width: 24vw;
+    height: 57vh;
+    border-radius: 16px;
+    border: 1px solid #211c2d;
+    box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.3);
+    background-color: #120e19;
+    padding: 50px;
+}
+
+.navbar{
+    background-color: #151515;
+}
+
+.logo{
+    width: 100px;
+    cursor: pointer;
+}
+
+h2{
+    font-size: 48px;
+    color: #F5F5F5;
+}
+
+h3{
+    font-size: 24px;
+}
+
+p{
+    color: #F5F5F5;
+    font-size: 16px;
+}
+
+button {
+    width: 510px;
+    height: 60px;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+input[type="text"],
+input[type="mail"],
+input[type="password"]{
+    width: 510px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #3b3944;
+    caret-color: #a8a8b2; 
+}
+
+input::placeholder {
+    color: #a8a8b2;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #a8a8b2;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .checkbox-container input[type="checkbox"]:checked {
+    border-color: #E67E22;
+    background-color: #E67E22;
+  }
+
+label{
+    color: #a8a8b2
+}
+
+.login{
+    background-color: #E67E22;
+    border: none;
+}
+
+.github{
+    background-color: transparent;
+    border: 1px solid #a8a8b2;
+}
+
+input[type="text"]:focus,
+input[type="mail"]:focus,
+input[type="password"]:focus {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #3b3944;
+    outline: none;
+    color: #F5F5F5
+  }
+
+  input:focus::placeholder {
+  color: transparent;
+}
+
+i{
+    font-size: 48px;
+    color:#c48647;
+    text-shadow: 0.5px 0 currentColor, 0.5px 0 currentColor;
+}
