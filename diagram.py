@@ -28,3 +28,4 @@ with app.app_context():
     
     print("📋 Tablas después de crear:")
     print(list(db.metadata.tables.keys()))
+    #aaaaaaaa
