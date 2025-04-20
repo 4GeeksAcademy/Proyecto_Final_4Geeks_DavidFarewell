@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/register.css";
+import { motion } from "framer-motion";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -36,7 +37,13 @@ const Register = () => {
 
     return (
         <div className="register-page">
-            <div className="register-container">
+            <motion.div
+                className="register-container"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -40 }}
+                transition={{ duration: 0.4 }}
+            >
                 <div className="register-box register-left">
                     <div className="info-list">
                         <div className="info-item">
@@ -94,7 +101,7 @@ const Register = () => {
                         Already have an account? <span onClick={() => navigate("/login")}>Log in</span>
                     </p>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
