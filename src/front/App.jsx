@@ -1,22 +1,25 @@
 import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
-import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { AnimatePresence } from "framer-motion";
 
 const App = () => {
-  const location = useLocation();
-  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+    const location = useLocation();
+    const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
-  return (
-    <ScrollToTop>
-      {!isAuthPage && <Navbar />}
-      <div className={isAuthPage ? "" : "container py-4"}>
-        <Outlet />
-      </div>
-      {!isAuthPage && <Footer />}
-    </ScrollToTop>
-  );
+    return (
+        <ScrollToTop>
+            {/* Fondo ONDAS solo en login/register */}
+            {isAuthPage && <div className="fixed-bg" />}
+
+            {/* Animación solo para rutas Auth */}
+            <div className="page-wrapper">
+                <AnimatePresence mode="wait">
+                    <Outlet key={location.pathname} />
+                </AnimatePresence>
+            </div>
+        </ScrollToTop>
+    );
 };
 
 export default App;
