@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../assets/styles/register.css";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "../assets/styles/register.css";
 
 const Register = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -19,19 +20,19 @@ const Register = () => {
             const resp = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ email, username, password }),
             });
 
             const data = await resp.json();
 
             if (resp.ok) {
-                alert("Registration successful!");
+                alert("Registered successfully!");
                 navigate("/login");
             } else {
                 alert(data.msg || "Error during registration");
             }
         } catch (error) {
-            console.error("Error in registration:", error);
+            console.error("Registration error:", error);
         }
     };
 
@@ -39,10 +40,10 @@ const Register = () => {
         <div className="register-page">
             <motion.div
                 className="register-container"
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -40 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5 }}
             >
                 <div className="register-box register-left">
                     <div className="info-list">
@@ -71,6 +72,12 @@ const Register = () => {
                     <p>Create your account to begin your journey</p>
 
                     <input
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <input
                         type="email"
                         placeholder="Email address"
                         value={email}
@@ -98,7 +105,8 @@ const Register = () => {
                     </button>
 
                     <p className="login-link">
-                        Already have an account? <span onClick={() => navigate("/login")}>Log in</span>
+                        Already have an account?{" "}
+                        <span onClick={() => navigate("/login")}>Log in</span>
                     </p>
                 </div>
             </motion.div>
