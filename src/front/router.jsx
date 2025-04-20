@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import App from "./App";
 import { Home } from "./pages/Home";
 import Login from "./pages/Login"; // Importación por defecto
-import { Register } from "./pages/Register";
+import Register from "./pages/Register";
 import { Profile } from "./pages/Profile";
 import { Landing } from "./pages/Landing";
 

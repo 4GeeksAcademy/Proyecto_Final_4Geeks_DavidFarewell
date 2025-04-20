@@ -1,17 +1,20 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
-import Footer from "./components/Footer"; 
+import Footer from "./components/Footer";
 
-export const App = () => {
+const App = () => {
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+
   return (
     <ScrollToTop>
-      <Navbar />
-      <div className="container py-4">
+      {!isAuthPage && <Navbar />}
+      <div className={isAuthPage ? "" : "container py-4"}>
         <Outlet />
       </div>
-      <Footer />
+      {!isAuthPage && <Footer />}
     </ScrollToTop>
   );
 };

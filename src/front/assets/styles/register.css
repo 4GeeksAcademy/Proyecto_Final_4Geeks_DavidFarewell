@@ -5,7 +5,7 @@ body, html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
-  .login-page {
+  .register-page {
     position: relative;
     background: url('/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/waves_2k_upscaled.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -17,29 +17,30 @@ body, html {
     z-index: 1;
   }
   
-  .login-page::before {
+  .register-page::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* <-- Nivel de oscuridad */
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 2;
   }
   
-  .login-container {
+  .register-container {
     display: flex;
     width: 100%;
     max-width: 1000px;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1); /* sombra resplandor */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
     background: transparent;
     position: relative;
-    z-index: 3; /* Encima del overlay */
+    z-index: 3;
   }
-  .login-box {
+  
+  .register-box {
     width: 50%;
     box-sizing: border-box;
     padding: 40px;
@@ -48,23 +49,22 @@ body, html {
     justify-content: center;
   }
   
-  .login-left {
-    background-color: rgba(0, 0, 0, 0.9);
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-  }
-  
-  .login-right {
+  .register-left {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(6px);
     color: white;
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-    align-items: space-between;
-    justify-content: space-between;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    align-items: flex-start;
   }
   
-  .login-title {
+  .register-right {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+  
+  .register-title {
     color: #a855f7;
     font-size: 32px;
     font-weight: bold;
@@ -84,8 +84,8 @@ body, html {
   
   input[type="email"],
   input[type="password"] {
-    width: 94,5% !important;
-    padding: 12px !important;
+    width: 94.5%;
+    padding: 12px;
     margin-bottom: 15px;
     border: none;
     border-radius: 6px;
@@ -98,15 +98,6 @@ body, html {
     color: #ccc;
   }
   
-  .remember-me {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: white;
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  
   button {
     padding: 12px;
     font-size: 16px;
@@ -116,7 +107,7 @@ body, html {
     margin-bottom: 12px;
   }
   
-  .login-btn {
+  .register-btn {
     background-color: orange;
     color: black;
     font-weight: bold;
@@ -128,13 +119,13 @@ body, html {
     border: 1px solid #444;
   }
   
-  .signup-link {
+  .login-link {
     font-size: 14px;
     color: white;
     text-align: center;
   }
   
-  .signup-link span {
+  .login-link span {
     color: orange;
     cursor: pointer;
   }
@@ -145,7 +136,7 @@ body, html {
     padding-left: 25%;
     gap: 20px;
     justify-content: space-evenly;
-    align-items:flex-start;
+    align-items: flex-start;
     height: 100%;
   }
   
@@ -164,24 +155,24 @@ body, html {
   
   /* RESPONSIVE */
   @media (max-width: 768px) {
-    .login-container {
+    .register-container {
       flex-direction: column;
       border-radius: 0;
       max-width: 500px;
     }
   
-    .login-box {
+    .register-box {
       width: 100%;
       border-radius: 0 !important;
       padding: 30px 20px;
     }
   
-    .login-left {
-      border-radius: 16px 16px 0 0;
+    .register-right {
+      border-radius: 0 0 16px 16px;
     }
   
-    .login-right {
-      border-radius: 0 0 16px 16px;
+    .register-left {
+      border-radius: 16px 16px 0 0;
       align-items: center;
     }
   
