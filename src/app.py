@@ -20,7 +20,7 @@ def create_app():
     db.init_app(app)
     Migrate(app, db)
     JWTManager(app)
-    CORS(app, origins=["https://cautious-trout-97jr665jxjvxc9p59-3000.app.github.dev"], supports_credentials=True)# <--- Esto permite peticiones desde tu frontend
+    CORS(app, origins=["https://cautious-trout-97jr665jxjvxc9p59-5000.app.github.dev/"], supports_credentials=True)# <--- Esto permite peticiones desde tu frontend
 
     setup_admin(app)
     app.register_blueprint(api, url_prefix="/api")
