@@ -1,274 +1,187 @@
-/* ========== LANDING PAGE STYLES ========== */
-
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
-  background: #0e0b1f;
+  background: linear-gradient(to bottom, #100c2a, #1a1443);
+  color: white;
 }
 
 .landing-container {
-  overflow-y: auto;
-  height: 100%;
-}
-
-/* ========== NAVBAR ========== */
-.navbar {
-  position: fixed;
-  top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  overflow-x: hidden;
 }
 
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.6rem;
-  color: white !important;
-  text-decoration: none;
-}
-
-.navbar-brand span {
-  color: #ff4f4f;
-}
-
-.navbar a,
-.navbar span {
-  color: white !important;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #9f79ff !important;
-}
-
-.btn-outline-primary,
-.btn-outline-success,
-.btn-outline-danger {
-  border-radius: 6px;
-  font-weight: bold;
-  padding: 0.3rem 0.8rem;
-}
-
-.btn-outline-primary:hover {
-  background: #0d6efd;
-  color: white;
-}
-
-.btn-outline-success:hover {
-  background: #198754;
-  color: white;
-}
-
-.btn-outline-danger:hover {
-  background: #dc3545;
-  color: white;
-}
-
-/* ========== SECTION ========== */
 .section {
-  min-height: 100vh;
+  padding: 120px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  box-sizing: border-box;
-  color: white;
   text-align: center;
-  background: linear-gradient(180deg, #0e0b1f, #1a1132);
-  position: relative;
-  z-index: 1;
 }
 
-/* ========== HERO SECTION ========== */
 .hero {
-  background: url('/assets/img/hero-bg.jpg') no-repeat center center/cover;
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  min-height: 100vh;
+  background: url('/assets/img/hero-wave.png') no-repeat bottom center;
+  background-size: cover;
+  background-position: bottom;
 }
 
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+.hero h1 {
+  font-size: 56px;
+  font-weight: 900;
+  margin-bottom: 20px;
 }
 
-.hero-title {
-  font-size: 3rem;
-  font-weight: bold;
+.hero h1 span {
+  color: #ff3cac;
 }
 
-.hero-title span {
-  color: white;
-  font-size: 4rem;
-}
-
-.hero-text {
+.hero p {
   max-width: 600px;
-  margin-top: 1rem;
-  font-size: 1.2rem;
+  margin: 20px auto;
+  opacity: 0.8;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.brands {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+  filter: grayscale(1) brightness(1.5);
+  flex-wrap: wrap;
+}
+
+.brands img {
+  height: 40px;
 }
 
 .cta-button {
-  margin-top: 2rem;
-  padding: 1rem 2rem;
-  background: #ff4f4f;
+  background-color: #ff3cac;
   color: white;
+  padding: 14px 32px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  font-size: 16px;
+  margin-top: 30px;
+  transition: transform 0.2s ease;
 }
 
 .cta-button:hover {
   transform: scale(1.05);
 }
 
-/* ========== SPONSORS CAROUSEL ========== */
-.sponsors-carousel {
-  width: 100%;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.carousel-track {
+.unlock-cards {
   display: flex;
-  animation: scrollSponsors 20s linear infinite;
-  gap: 3rem;
-  padding: 1rem 0;
-  justify-content: center;
-}
-
-.carousel-track img {
-  height: 40px;
-  object-fit: contain;
-}
-
-@keyframes scrollSponsors {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* ========== UNLOCK BOXES ========== */
-.unlock-boxes {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  gap: 24px;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-.box {
-  background-color: #1f153a;
-  padding: 2rem;
-  border-radius: 16px;
+.card {
+  background: #1f153b;
+  border-radius: 20px;
+  padding: 30px;
   width: 280px;
-  max-width: 90vw;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  text-align: center;
 }
 
-.box i {
-  font-size: 2rem;
-  color: #9f79ff;
-  margin-bottom: 1rem;
+.card:hover {
+  transform: scale(1.05);
 }
 
-/* ========== TABS ========== */
+.card .icon {
+  font-size: 40px;
+  color: #ff3cac;
+  margin-bottom: 16px;
+}
+
 .tabs {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin: 2rem 0;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
 }
 
 .tabs button {
-  padding: 0.8rem 1.2rem;
-  background: #2b1c4f;
+  padding: 8px 20px;
+  background: #ffffff22;
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 12px;
   font-weight: bold;
-  transition: background 0.3s;
+  cursor: pointer;
 }
 
 .tabs button.active,
 .tabs button:hover {
-  background: #9f79ff;
+  background-color: #ff3cac;
 }
 
-.mission-box {
-  max-width: 600px;
-  background: #1f153a;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+.mascot-box {
+  background: #1f153b;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 700px;
+  margin-top: 30px;
+  text-align: center;
 }
 
-.mission-box img {
+.mascot-box img {
   width: 100px;
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
-/* ========== REVIEWS CAROUSEL ========== */
-.reviews-carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 3rem 0;
+.subscriptions .card h3 {
+  color: #ff3cac;
+}
+
+.subscriptions .card .price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.subscriptions .card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.subscriptions .card ul li::before {
+  content: '✔';
+  margin-right: 8px;
+  color: #ff3cac;
 }
 
 .carousel-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  overflow: hidden;
+  width: 100%;
   position: relative;
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
 .carousel-track {
   display: flex;
-  gap: 2rem;
-  animation: scrollLoop 40s linear infinite;
-  width: fit-content;
-}
-
-.review {
-  flex: 0 0 auto;
-  padding: 1rem 2rem;
-  background: #3b2c6e;
-  border-radius: 12px;
-  color: white;
-  font-weight: bold;
+  gap: 20px;
   white-space: nowrap;
-  min-width: 220px;
+  animation: scroll-left 30s linear infinite;
 }
 
-@keyframes scrollLoop {
+.carousel-track.track2 {
+  animation-direction: reverse;
+}
+
+@keyframes scroll-left {
   0% {
     transform: translateX(0%);
   }
@@ -277,35 +190,44 @@ body, html {
   }
 }
 
-/* ========== CTA FINAL & FOOTER ========== */
-.cta-final h2,
-.cta-final h3 {
-  margin: 0.5rem 0;
+.carousel-fade,
+.carousel-fade.right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-fade {
+  left: 0;
+  background: linear-gradient(to right, #1a1443, transparent);
+}
+
+.carousel-fade.right {
+  right: 0;
+  background: linear-gradient(to left, #1a1443, transparent);
+}
+
+.testimonial-card {
+  background: #2e234c;
+  padding: 20px;
+  border-radius: 16px;
+  min-width: 250px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #eee;
+}
+
+.cta h2 span {
+  color: #ff3cac;
 }
 
 .footer {
-  padding: 1rem;
+  background: #0c081f;
+  padding: 20px;
   text-align: center;
-  font-size: 0.8rem;
-  background: #0e0b1f;
-  color: #aaa;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-title span {
-    font-size: 2.8rem;
-  }
-
-  .box {
-    width: 90%;
-  }
-
-  .review {
-    min-width: 180px;
-  }
+  font-size: 14px;
+  color: #888;
 }
