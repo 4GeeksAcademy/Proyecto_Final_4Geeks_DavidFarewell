@@ -5,6 +5,9 @@ body, html {
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  background: linear-gradient(180deg, #0e0b1f 0%, #1a1132 100%);
+  color: white;
+  font-family: 'Arial', sans-serif;
 }
 
 .landing-container {
@@ -12,6 +15,7 @@ body, html {
   height: 100%;
 }
 
+/* ========== SECTION GENERAL ========== */
 .section {
   min-height: 100vh;
   display: flex;
@@ -20,27 +24,26 @@ body, html {
   justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
-  color: white;
   text-align: center;
-  background: linear-gradient(180deg, #0e0b1f, #1a1132);
   position: relative;
   z-index: 1;
 }
 
 /* ========== HERO SECTION ========== */
 .hero {
-  background: url('/assets/img/hero-bg.jpg') no-repeat center center/cover;
+  background: url('/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/waves_2k_upscaled.jpg') no-repeat center center/cover;
   position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 80px;
 }
 
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
-  height: calc(100% - 80px);
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,17 +83,19 @@ body, html {
   transform: scale(1.05);
 }
 
+/* Mueve el carrusel dentro del HERO */
 .sponsors-carousel {
   width: 100%;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 0;
+  margin-top: auto;
 }
 
 .carousel-track {
   display: flex;
   animation: scrollSponsors 20s linear infinite;
   gap: 3rem;
-  padding: 1rem 0;
   justify-content: center;
 }
 

@@ -1,10 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
-import "../assets/styles/navbar.css"; // ✅ ruta corregida
+import "../assets/styles/navbar.css";
 
 const Navbar = () => {
   const { store, dispatch } = useGlobalReducer();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Solo mostrar el navbar en la página de inicio (landing)
+  const isLanding = location.pathname === "/";
+
+  if (!isLanding) return null;
 
   const handleLogout = () => {
     localStorage.removeItem("token");
