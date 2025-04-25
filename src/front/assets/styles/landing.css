@@ -5,9 +5,7 @@ body, html {
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background: linear-gradient(180deg, #0e0b1f 0%, #1a1132 100%);
-  color: white;
-  font-family: 'Arial', sans-serif;
+  background: #0e0b1f;
 }
 
 .landing-container {
@@ -15,7 +13,67 @@ body, html {
   height: 100%;
 }
 
-/* ========== SECTION GENERAL ========== */
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: white !important;
+  text-decoration: none;
+}
+
+.navbar-brand span {
+  color: #ff4f4f;
+}
+
+.navbar a,
+.navbar span {
+  color: white !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #9f79ff !important;
+}
+
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-danger {
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 0.3rem 0.8rem;
+}
+
+.btn-outline-primary:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+.btn-outline-success:hover {
+  background: #198754;
+  color: white;
+}
+
+.btn-outline-danger:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* ========== SECTION ========== */
 .section {
   min-height: 100vh;
   display: flex;
@@ -24,26 +82,27 @@ body, html {
   justify-content: center;
   padding: 2rem;
   box-sizing: border-box;
+  color: white;
   text-align: center;
+  background: linear-gradient(180deg, #0e0b1f, #1a1132);
   position: relative;
   z-index: 1;
 }
 
 /* ========== HERO SECTION ========== */
 .hero {
-  background: url('/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/waves_2k_upscaled.jpg') no-repeat center center/cover;
+  background: url('/assets/img/hero-bg.jpg') no-repeat center center/cover;
   position: relative;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 80px;
 }
 
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6);
   width: 100%;
-  flex: 1;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,19 +142,18 @@ body, html {
   transform: scale(1.05);
 }
 
-/* Mueve el carrusel dentro del HERO */
+/* ========== SPONSORS CAROUSEL ========== */
 .sponsors-carousel {
   width: 100%;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.4);
-  padding: 1rem 0;
-  margin-top: auto;
 }
 
 .carousel-track {
   display: flex;
   animation: scrollSponsors 20s linear infinite;
   gap: 3rem;
+  padding: 1rem 0;
   justify-content: center;
 }
 
@@ -175,45 +233,48 @@ body, html {
   margin-bottom: 1rem;
 }
 
-/* ========== REVIEWS ========== */
+/* ========== REVIEWS CAROUSEL ========== */
 .reviews-carousel {
-  overflow: hidden;
-  width: 100%;
   position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 3rem 0;
 }
 
-.line {
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.carousel-track {
   display: flex;
   gap: 2rem;
-  white-space: nowrap;
-  font-weight: bold;
-}
-
-.line-top {
-  animation: scrollLeft 30s linear infinite;
-}
-
-.line-bottom {
-  animation: scrollRight 30s linear infinite;
+  animation: scrollLoop 40s linear infinite;
+  width: fit-content;
 }
 
 .review {
-  display: inline-block;
+  flex: 0 0 auto;
   padding: 1rem 2rem;
-  background: #291d52;
+  background: #3b2c6e;
   border-radius: 12px;
   color: white;
+  font-weight: bold;
+  white-space: nowrap;
   min-width: 220px;
 }
 
-@keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-
-@keyframes scrollRight {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(100%); }
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ========== CTA FINAL & FOOTER ========== */

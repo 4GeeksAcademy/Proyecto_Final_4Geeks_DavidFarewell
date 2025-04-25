@@ -150,16 +150,29 @@ const Landing = () => {
         >
           Our clients reviews
         </motion.h2>
+
         <div className="reviews-carousel">
-          <div className="line line-top">
-            <div className="review">Lou Logico - Humorist</div>
-            <div className="review">Jean Pierre - Front-End Dev</div>
-            <div className="review">Jagger Meister - Boxer</div>
-          </div>
-          <div className="line line-bottom">
-            <div className="review">Jonas Jimbo - Singer</div>
-            <div className="review">Javy Kardashian - Nurse</div>
-            <div className="review">Juan Albertillo - Trucker</div>
+          <div className="carousel-wrapper">
+            <div className="carousel-track">
+              {[
+                "Jean Pierre - Front-End Dev",
+                "Jagger Meister - Boxer",
+                "Jonas Jimbo - Singer",
+                "Javy Kardashian - Nurse",
+                "Juan Albertillo - Trucker",
+                "Lou Logico - Humorist",
+                "Jean Pierre - Front-End Dev",
+                "Jagger Meister - Boxer",
+                "Jonas Jimbo - Singer",
+                "Javy Kardashian - Nurse",
+                "Juan Albertillo - Trucker",
+                "Lou Logico - Humorist",
+              ].map((text, index) => (
+                <div className="review" key={index}>
+                  {text}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
