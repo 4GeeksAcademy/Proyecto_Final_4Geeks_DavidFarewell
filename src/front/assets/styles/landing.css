@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
-  background: linear-gradient(to bottom, #100c2a, #1a1443);
+  background: linear-gradient(to bottom, #0e0b1f, #15112b);
   color: white;
 }
 
@@ -12,7 +12,8 @@ body {
 }
 
 .section {
-  padding: 120px 20px 80px;
+  min-height: 100vh;
+  padding: 100px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,49 +22,51 @@ body {
 }
 
 .hero {
-  min-height: 100vh;
-  background: url('/assets/img/hero-wave.png') no-repeat bottom center;
-  background-size: cover;
-  background-position: bottom;
+  background: none;
+  position: relative;
 }
 
 .hero h1 {
-  font-size: 56px;
-  font-weight: 900;
-  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .hero h1 span {
-  color: #ff3cac;
+  color: #e14eca;
 }
 
 .hero p {
   max-width: 600px;
-  margin: 20px auto;
-  opacity: 0.8;
+  opacity: 0.85;
   font-size: 16px;
   line-height: 1.6;
+  margin-top: 20px;
 }
 
 .brands {
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 60px;
-  filter: grayscale(1) brightness(1.5);
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+  filter: grayscale(1) brightness(1.4);
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
 }
 
 .brands img {
-  height: 40px;
+  height: 32px;
 }
 
 .cta-button {
-  background-color: #ff3cac;
+  background-color: #e14eca;
   color: white;
   padding: 14px 32px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
@@ -84,7 +87,7 @@ body {
 }
 
 .card {
-  background: #1f153b;
+  background: #1a1535;
   border-radius: 20px;
   padding: 30px;
   width: 280px;
@@ -98,8 +101,19 @@ body {
 
 .card .icon {
   font-size: 40px;
-  color: #ff3cac;
+  color: #e14eca;
   margin-bottom: 16px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.card p {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.5;
 }
 
 .tabs {
@@ -118,15 +132,16 @@ body {
   border-radius: 12px;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .tabs button.active,
 .tabs button:hover {
-  background-color: #ff3cac;
+  background-color: #e14eca;
 }
 
 .mascot-box {
-  background: #1f153b;
+  background: #1a1535;
   border-radius: 20px;
   padding: 30px;
   max-width: 700px;
@@ -139,8 +154,16 @@ body {
   margin-bottom: 15px;
 }
 
+.mascot-box p {
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
 .subscriptions .card h3 {
-  color: #ff3cac;
+  color: #e14eca;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .subscriptions .card .price {
@@ -154,74 +177,84 @@ body {
   padding: 0;
   margin: 20px 0;
   font-size: 14px;
-  text-align: left;
   line-height: 1.6;
+  text-align: left;
+}
+
+.subscriptions .card ul li {
+  margin-bottom: 6px;
+  padding-left: 16px;
+  position: relative;
 }
 
 .subscriptions .card ul li::before {
   content: '✔';
-  margin-right: 8px;
-  color: #ff3cac;
+  position: absolute;
+  left: 0;
+  color: #e14eca;
 }
 
+.subscriptions .card button {
+  background: #e14eca;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* Carousel */
 .carousel-wrapper {
   overflow: hidden;
   width: 100%;
+  padding: 40px 0;
   position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
 .carousel-track {
   display: flex;
-  gap: 20px;
-  white-space: nowrap;
+  gap: 24px;
   animation: scroll-left 30s linear infinite;
-}
-
-.carousel-track.track2 {
-  animation-direction: reverse;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.carousel-fade,
-.carousel-fade.right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 80px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.carousel-fade {
-  left: 0;
-  background: linear-gradient(to right, #1a1443, transparent);
-}
-
-.carousel-fade.right {
-  right: 0;
-  background: linear-gradient(to left, #1a1443, transparent);
 }
 
 .testimonial-card {
   background: #2e234c;
   padding: 20px;
-  border-radius: 16px;
-  min-width: 250px;
+  border-radius: 20px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
   font-weight: 600;
   color: #eee;
 }
 
+.testimonial-card img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .cta h2 span {
-  color: #ff3cac;
+  color: #e14eca;
 }
 
 .footer {

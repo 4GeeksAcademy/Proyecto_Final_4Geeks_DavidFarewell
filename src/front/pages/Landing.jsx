@@ -9,12 +9,12 @@ const fadeInUp = {
 };
 
 const reviews = [
-  "Lou Logico - Humorist",
-  "Jean Pierre - Front-End Dev",
-  "Jagger Meister - Boxer",
-  "Jonas Jimbo - Singer",
-  "Javy Kardashian - Nurse",
-  "Juan Albertillo - Trucker",
+  { name: "Lou Logico - Humorist", img: "/assets/img/user1.png" },
+  { name: "Jean Pierre - Front-End Dev", img: "/assets/img/user2.png" },
+  { name: "Jagger Meister - Boxer", img: "/assets/img/user3.png" },
+  { name: "Jonas Jimbo - Singer", img: "/assets/img/user4.png" },
+  { name: "Javy Kardashian - Nurse", img: "/assets/img/user5.png" },
+  { name: "Juan Albertillo - Trucker", img: "/assets/img/user6.png" },
 ];
 
 const subscriptions = [
@@ -134,7 +134,7 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      {/* SUBSCRIPTIONS */}
+      {/* SUBSCRIPTIONS SECTION */}
       <section className="section subscriptions" id="subscriptions">
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           Subscriptions
@@ -155,28 +155,24 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CLIENTS */}
+      {/* CLIENTS SECTION */}
       <section className="section reviews" id="clients">
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           Our clients reviews
         </motion.h2>
-        <div className="carousel-wrapper fade-edges">
+        <div className="carousel-wrapper">
           <div className="carousel-track">
             {doubledReviews.map((r, i) => (
-              <div className="testimonial-card" key={i}>{r}</div>
-            ))}
-          </div>
-        </div>
-        <div className="carousel-wrapper fade-edges">
-          <div className="carousel-track track2">
-            {doubledReviews.map((r, i) => (
-              <div className="testimonial-card" key={`b-${i}`}>{r}</div>
+              <div className="testimonial-card" key={i}>
+                <img src={r.img} alt={r.name} />
+                <p>{r.name}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* CTA FINAL */}
       <section className="section cta" id="cta">
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           If you want to become one of them and
