@@ -160,10 +160,22 @@ const Landing = () => {
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           Our clients reviews
         </motion.h2>
+
         <div className="carousel-wrapper">
           <div className="carousel-track">
             {doubledReviews.map((r, i) => (
               <div className="testimonial-card" key={i}>
+                <img src={r.img} alt={r.name} />
+                <p>{r.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="carousel-wrapper reverse">
+          <div className="carousel-track">
+            {doubledReviews.map((r, i) => (
+              <div className="testimonial-card" key={`rev-${i}`}>
                 <img src={r.img} alt={r.name} />
                 <p>{r.name}</p>
               </div>
