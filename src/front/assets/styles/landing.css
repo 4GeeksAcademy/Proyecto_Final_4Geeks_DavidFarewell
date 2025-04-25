@@ -1,29 +1,245 @@
+/* ========== LANDING PAGE STYLES ========== */
+
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #1f1f1f, #121212);
-    color: white;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.landing-container {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  background: linear-gradient(180deg, #0e0b1f, #1a1132);
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  background: url('/assets/img/hero-bg.jpg') no-repeat center center/cover;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: calc(100% - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-title span {
+  color: white;
+  font-size: 4rem;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.cta-button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: #ff4f4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.sponsors-carousel {
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.carousel-track {
+  display: flex;
+  animation: scrollSponsors 20s linear infinite;
+  gap: 3rem;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.carousel-track img {
+  height: 40px;
+  object-fit: contain;
+}
+
+@keyframes scrollSponsors {
+  0% {
+    transform: translateX(0);
   }
-  
-  .landing-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .landing-page h1 {
-    font-size: 3rem;
-    color: orange;
-    margin-bottom: 20px;
+}
+
+/* ========== UNLOCK BOXES ========== */
+.unlock-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.box {
+  background-color: #1f153a;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 280px;
+  max-width: 90vw;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.box i {
+  font-size: 2rem;
+  color: #9f79ff;
+  margin-bottom: 1rem;
+}
+
+/* ========== TABS ========== */
+.tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  padding: 0.8rem 1.2rem;
+  background: #2b1c4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tabs button.active,
+.tabs button:hover {
+  background: #9f79ff;
+}
+
+.mission-box {
+  max-width: 600px;
+  background: #1f153a;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.mission-box img {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+/* ========== REVIEWS ========== */
+.reviews-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.line {
+  display: flex;
+  gap: 2rem;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.line-top {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.line-bottom {
+  animation: scrollRight 30s linear infinite;
+}
+
+.review {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #291d52;
+  border-radius: 12px;
+  color: white;
+  min-width: 220px;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* ========== CTA FINAL & FOOTER ========== */
+.cta-final h2,
+.cta-final h3 {
+  margin: 0.5rem 0;
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  background: #0e0b1f;
+  color: #aaa;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
   }
-  
-  .landing-page p {
-    font-size: 1.2rem;
+
+  .hero-title span {
+    font-size: 2.8rem;
   }
-  
+
+  .box {
+    width: 90%;
+  }
+
+  .review {
+    min-width: 180px;
+  }
+}
