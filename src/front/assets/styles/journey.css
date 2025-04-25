@@ -1,0 +1,104 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+p{
+    font-size: 20px;
+}
+
+h3{
+    font-size: 36px;
+}
+
+.moty {
+    position: absolute;
+    top: 50px;
+    left: 120px;
+}
+
+.journey_container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #130B21;
+}
+
+.menu_month{
+    width: 270px;
+    height: 300px;
+    margin-left: 80px;
+    background-color: #221833;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_text p{
+    margin: 0px 0px 20px 30px;
+    cursor: pointer;
+}
+
+.menu_text h3{
+    margin: 20px 0px 24px 30px;
+    cursor: pointer;
+}
+
+.cards{
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 55px;
+}
+
+.card1{
+    width: 175px;
+    height: 175px;
+    background-color: #6725D8;
+    border-radius: 16px;
+    box-shadow: 0px 11px 0px rgba(9, 3, 19, 1);
+    border: solid 1px #090313;
+}
+
+.card2{
+    width: 175px;
+    height: 175px;
+    background-color: #FB645C;
+    border-radius: 16px;
+    box-shadow: 0px 11px 0px rgba(9, 3, 19, 1);
+    border: solid 1px #090313;
+}
+
+.card3{
+    width: 175px;
+    height: 175px;
+    background-color: #4E465C;
+    border-radius: 16px;
+    box-shadow: 0px 11px 0px rgba(9, 3, 19, 1);
+    border: solid 1px #090313;
+}
+
+.card1:active{
+    box-shadow: none;
+    transform: translateY(11px);
+}
+
+.card2:active{
+    box-shadow: none;
+    transform: translateY(11px);
+}
+
+.card3:active{
+    box-shadow: none;
+    transform: translateY(11px);
+}
+
+img{
+    width: 175px;
+    height: 175px;
+}

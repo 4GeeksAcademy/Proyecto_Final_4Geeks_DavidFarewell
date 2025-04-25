@@ -1,0 +1,46 @@
+import "../assets/styles/journey.css";
+import { Link } from "react-router-dom";
+import AnimatedPage from "../components/AnimatedPage";
+
+
+const Journey = () => {
+    return (
+        <AnimatedPage>
+            <div className="journey_container">
+                <div className="moty">
+                    <img src="src/front/assets/styles/images/Moti_Feliz.webp" alt="moty_feliz" />
+                </div>
+                <div className="menu_month">
+                    <div className="menu_text">
+                        <h3>May</h3>
+                        <p>Week 1</p>
+                        <p>Week 2</p>
+                        <p>Week 3</p>
+                        <p>Week 4</p>
+                    </div>
+                </div>
+                <div className="cards">
+                    <div className="button">
+                        <div className="card1">
+                            <img src="src/front/assets/styles/images/Alegre1.webp" alt="moty_alegre" />
+                        </div>
+                        <div className="card2">
+                        </div>
+                        <div className="card3">
+                        </div>
+                        <div className="card3">
+                        </div>
+                        <div className="card3">
+                        </div>
+                        <div className="card3">
+                        </div>
+                        <div className="card3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </AnimatedPage>
+    );
+};
+
+export default Journey;
