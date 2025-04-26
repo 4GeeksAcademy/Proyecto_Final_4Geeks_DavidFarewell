@@ -81,17 +81,34 @@ body {
 /* UNLOCK CARDS */
 .unlock-cards {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
+  margin-top: 2rem;
 }
+
 .unlock-cards .card {
   background: #1c162e;
   border-radius: 1rem;
-  padding: 2rem;
-  width: 250px;
+  padding: 2.5rem 2rem;
+  width: 280px;
+  min-height: 280px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.section.unlock {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .card .icon {
   font-size: 2rem;
   color: #f652a0;
@@ -103,6 +120,8 @@ body {
   display: flex;
   gap: 1rem;
   margin: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .tabs button {
   padding: 0.5rem 1.2rem;
@@ -112,16 +131,30 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 .tabs .active {
   background: #f652a0;
 }
-.mascot-box {
+
+.tab-content {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
-.mascot-box img {
-  height: 80px;
-  margin-bottom: 1rem;
+.tab-content img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+.tab-content p {
+  color: #ccc;
+  font-size: 0.95rem;
+  max-width: 700px;
+  line-height: 1.6;
 }
 
 /* TESTIMONIAL CAROUSEL */
@@ -241,7 +274,6 @@ body {
   transform: scale(1.05);
   opacity: 1;
 }
-
 
 @keyframes scroll-left {
   0% {

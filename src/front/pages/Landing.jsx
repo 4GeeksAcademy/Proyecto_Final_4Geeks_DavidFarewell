@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import "../assets/styles/landing.css";
@@ -9,6 +9,13 @@ import facebook from "../assets/styles/images/Landing_images/facebook-logo-white
 import headspace from "../assets/styles/images/Landing_images/Headspace.webp";
 import twilio from "../assets/styles/images/Landing_images/Twilio.png";
 import verizon from "../assets/styles/images/Landing_images/Verizon.png";
+
+// IMÁGENES PARA LOS TABS (puedes cambiarlas fácil luego)
+import missionsImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
+import progressImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
+import resourcesImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
+import achievementsImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -60,12 +67,27 @@ const subscriptions = [
   },
 ];
 
-// NUEVO ARRAY CON LOS IMPORTS
 const brands = [amazon, facebook, headspace, twilio, verizon];
 
 const Landing = () => {
+  const [activeTab, setActiveTab] = useState("MISSIONS");
   const doubledReviews = [...reviews, ...reviews];
   const doubledBrands = [...brands, ...brands];
+
+  const getImageByTab = () => {
+    switch (activeTab) {
+      case "MISSIONS":
+        return missionsImg;
+      case "PROGRESS":
+        return progressImg;
+      case "RESOURCES":
+        return resourcesImg;
+      case "ACHIEVEMENTS":
+        return achievementsImg;
+      default:
+        return missionsImg;
+    }
+  };
 
   return (
     <div className="landing-container">
@@ -89,12 +111,7 @@ const Landing = () => {
       <div className="brand-carousel">
         <div className="brand-track">
           {doubledBrands.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`brand-${index}`}
-              className="brand-logo"
-            />
+            <img key={index} src={img} alt={`brand-${index}`} className="brand-logo" />
           ))}
         </div>
       </div>
@@ -138,17 +155,26 @@ const Landing = () => {
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           How it works
         </motion.h2>
+
         <div className="tabs">
-          <button className="active">MISSIONS</button>
-          <button>PROGRESS</button>
-          <button>RESOURCES</button>
-          <button>ACHIEVEMENTS</button>
+          {["MISSIONS", "PROGRESS", "RESOURCES", "ACHIEVEMENTS"].map((tab) => (
+            <button
+              key={tab}
+              className={activeTab === tab ? "active" : ""}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
-        <motion.div className="mascot-box" variants={fadeInUp} initial="hidden" whileInView="visible">
-          <img src="/assets/img/mascot.png" alt="Mascot" />
+
+        <motion.div className="tab-content" variants={fadeInUp} initial="hidden" whileInView="visible">
+          <img src={getImageByTab()} alt={activeTab} />
           <p>
-            Every week, you’ll get missions tailored to your interests, level, and goals. They're built to
-            challenge you while staying achievable and adaptive.
+            {activeTab === "MISSIONS" && "Every week, you’ll get missions tailored to your interests, level, and goals. They're built to challenge you while staying achievable and adaptive."}
+            {activeTab === "PROGRESS" && "Track your daily and weekly progress easily to stay motivated and on course towards your goals."}
+            {activeTab === "RESOURCES" && "Access personalized tips, articles, and expert advice to help you on your journey."}
+            {activeTab === "ACHIEVEMENTS" && "Celebrate every milestone you hit with badges, awards, and recognition along your journey."}
           </p>
         </motion.div>
       </section>
