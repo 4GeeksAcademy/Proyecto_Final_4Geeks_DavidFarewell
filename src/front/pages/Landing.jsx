@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import "../assets/styles/landing.css";
 
+// IMPORTACIÓN DIRECTA DE LOGOS
+import amazon from "../assets/styles/images/Landing_images/Amazon.png";
+import facebook from "../assets/styles/images/Landing_images/facebook-logo-white-full-transparent.png";
+import headspace from "../assets/styles/images/Landing_images/Headspace.webp";
+import twilio from "../assets/styles/images/Landing_images/Twilio.png";
+import verizon from "../assets/styles/images/Landing_images/Verizon.png";
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
@@ -53,8 +60,12 @@ const subscriptions = [
   },
 ];
 
+// NUEVO ARRAY CON LOS IMPORTS
+const brands = [amazon, facebook, headspace, twilio, verizon];
+
 const Landing = () => {
   const doubledReviews = [...reviews, ...reviews];
+  const doubledBrands = [...brands, ...brands];
 
   return (
     <div className="landing-container">
@@ -72,13 +83,21 @@ const Landing = () => {
         <motion.button className="cta-button" variants={fadeInUp} initial="hidden" whileInView="visible">
           Start your journey
         </motion.button>
+      </section>
 
-        <div className="brands">
-          {["verizon", "facebook", "amazon", "headspace", "twilio"].map((brand, index) => (
-            <img key={index} src={`/assets/img/${brand}.png`} alt={brand} />
+      {/* BRANDS CAROUSEL */}
+      <div className="brand-carousel">
+        <div className="brand-track">
+          {doubledBrands.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`brand-${index}`}
+              className="brand-logo"
+            />
           ))}
         </div>
-      </section>
+      </div>
 
       {/* UNLOCK SECTION */}
       <section className="section unlock" id="unlock">
@@ -134,7 +153,7 @@ const Landing = () => {
         </motion.div>
       </section>
 
-      {/* SUBSCRIPTIONS SECTION */}
+      {/* SUBSCRIPTIONS */}
       <section className="section subscriptions" id="subscriptions">
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           Subscriptions
@@ -155,7 +174,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CLIENTS SECTION */}
+      {/* REVIEWS */}
       <section className="section reviews" id="clients">
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           Our clients reviews
@@ -201,7 +220,6 @@ const Landing = () => {
         </motion.button>
       </section>
 
-      {/* FOOTER */}
       <footer className="footer">
         <p>Level Up © 2025</p>
       </footer>

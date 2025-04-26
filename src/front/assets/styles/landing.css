@@ -208,3 +208,46 @@ body {
   background: #0b0a18;
   color: white;
 }
+
+/* BRANDS CAROUSEL */
+.brand-carousel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
+}
+
+.brand-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: scroll-left 40s linear infinite;
+  padding: 0 2rem;
+}
+
+.brand-logo {
+  height: 40px;
+  flex-shrink: 0;
+  filter: grayscale(1) brightness(0.9);
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
