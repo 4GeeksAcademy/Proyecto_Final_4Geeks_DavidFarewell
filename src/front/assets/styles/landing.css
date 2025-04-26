@@ -16,21 +16,56 @@ body {
 }
 
 .hero {
-  text-align: center;
+  position: relative;
+  background: url("/assets/img/hero-bg.png") no-repeat right center;
+  background-size: contain;
+  text-align: left;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  max-width: 1200px;
+  width: 100%;
 }
-.hero span {
-  color: #f652a0;
+
+.hero h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
 }
+
+.hero h1 span {
+  display: block;
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+.hero p {
+  color: #ccc;
+  max-width: 550px;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
 .cta-button {
   margin-top: 1.5rem;
-  padding: 0.8rem 2rem;
-  background: #f652a0;
+  padding: 0.7rem 1.6rem;
+  background: #f65252;
   border: none;
   border-radius: 10px;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
+
+.cta-button:hover {
+  background: #ff7373;
+}
+
 .brands {
   margin-top: 3rem;
   display: flex;
@@ -39,7 +74,8 @@ body {
   flex-wrap: wrap;
 }
 .brands img {
-  height: 40px;
+  height: 32px;
+  filter: grayscale(1) brightness(0.9);
 }
 
 /* UNLOCK CARDS */
@@ -95,7 +131,7 @@ body {
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 
 .carousel-track {
@@ -106,6 +142,7 @@ body {
 .carousel-wrapper.reverse .carousel-track {
   animation: scroll-left 40s linear infinite;
 }
+
 @keyframes scroll-right {
   0% {
     transform: translateX(0%);
@@ -114,6 +151,7 @@ body {
     transform: translateX(-50%);
   }
 }
+
 @keyframes scroll-left {
   0% {
     transform: translateX(0%);
@@ -122,21 +160,23 @@ body {
     transform: translateX(50%);
   }
 }
+
 .testimonial-card {
   background-color: #1c162e;
   border-radius: 1rem;
-  padding: 1rem;
-  width: 170px;
-  height: 170px;
+  padding: 1.2rem;
+  width: 220px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   flex-shrink: 0;
   color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  text-align: center;
 }
+
 .testimonial-card img {
   width: 60px;
   height: 60px;
@@ -144,6 +184,19 @@ body {
   margin-bottom: 0.5rem;
   object-fit: cover;
 }
+
+.testimonial-card .stars {
+  font-size: 1.1rem;
+  color: gold;
+  margin: 0.3rem 0;
+}
+
+.testimonial-card .review-text {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 0.3rem;
+}
+
 .testimonial-card:hover {
   transform: scale(1.05);
 }

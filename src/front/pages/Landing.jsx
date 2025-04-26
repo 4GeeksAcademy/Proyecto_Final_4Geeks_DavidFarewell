@@ -167,6 +167,8 @@ const Landing = () => {
               <div className="testimonial-card" key={i}>
                 <img src={r.img} alt={r.name} />
                 <p>{r.name}</p>
+                <div className="stars">★★★★★</div>
+                <p className="review-text">Amazing experience!</p>
               </div>
             ))}
           </div>
@@ -178,6 +180,8 @@ const Landing = () => {
               <div className="testimonial-card" key={`rev-${i}`}>
                 <img src={r.img} alt={r.name} />
                 <p>{r.name}</p>
+                <div className="stars">★★★★☆</div>
+                <p className="review-text">Highly recommend!</p>
               </div>
             ))}
           </div>
