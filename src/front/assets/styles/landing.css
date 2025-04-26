@@ -17,17 +17,41 @@ body {
 
 .hero {
   position: relative;
-  background: url("/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg") no-repeat right center;
-  background-size: contain;
-  text-align: left;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
-  max-width: 1200px;
   width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 4rem;
+  background-image: url("/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  text-align: left;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.hero h1,
+.hero p,
+.hero .cta-button {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -43,8 +67,7 @@ body {
 
 .hero p {
   color: #ccc;
-  max-width: 550px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: 1.5rem;
   line-height: 1.6;
 }
@@ -66,16 +89,45 @@ body {
   background: #ff7373;
 }
 
-.brands {
-  margin-top: 3rem;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+/* BRANDS CAROUSEL */
+.brand-carousel {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 3;
+  padding: 0 0;
 }
-.brands img {
+
+.brand-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  animation: scroll-left 40s linear infinite;
+  padding: 0 2rem;
+}
+
+.brand-logo {
   height: 32px;
+  flex-shrink: 0;
   filter: grayscale(1) brightness(0.9);
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* UNLOCK CARDS */
@@ -185,15 +237,6 @@ body {
   }
 }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(50%);
-  }
-}
-
 .testimonial-card {
   background-color: #1c162e;
   border-radius: 1rem;
@@ -240,46 +283,4 @@ body {
   text-align: center;
   background: #0b0a18;
   color: white;
-}
-
-/* BRANDS CAROUSEL */
-.brand-carousel {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1.5rem 0;
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
-}
-
-.brand-track {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  animation: scroll-left 40s linear infinite;
-  padding: 0 2rem;
-}
-
-.brand-logo {
-  height: 40px;
-  flex-shrink: 0;
-  filter: grayscale(1) brightness(0.9);
-  opacity: 0.9;
-  transition: transform 0.3s ease;
-}
-
-.brand-logo:hover {
-  transform: scale(1.05);
-  opacity: 1;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
