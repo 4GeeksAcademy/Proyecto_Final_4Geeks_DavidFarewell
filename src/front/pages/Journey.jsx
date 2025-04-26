@@ -21,21 +21,15 @@ const Journey = () => {
                 </div>
                 <div className="cards">
                     <div className="button">
-                        <div className="card1">
+                        <div className="card card1">
                             <img src="src/front/assets/styles/images/Alegre1.webp" alt="moty_alegre" />
                         </div>
-                        <div className="card2">
-                        </div>
-                        <div className="card3">
-                        </div>
-                        <div className="card3">
-                        </div>
-                        <div className="card3">
-                        </div>
-                        <div className="card3">
-                        </div>
-                        <div className="card3">
-                        </div>
+                        <div className="card card2"></div>
+                        <div className="card card3"></div>
+                        <div className="card card3"></div>
+                        <div className="card card3"></div>
+                        <div className="card card3"></div>
+                        <div className="card card3"></div>
                     </div>
                 </div>
             </div>
