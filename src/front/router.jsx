@@ -7,6 +7,7 @@ import { Profile } from "./pages/Profile";
 import { Landing }  from "./pages/Landing";
 import PrivateRoute from "./components/PrivateRoute";
 import Journey from "./pages/Journey";
+import Onboarding from "./pages/Onboarding";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +39,7 @@ export const router = createBrowserRouter(
       } />
       
       <Route path="journey" element={<Journey />} />
+      <Route path="onboarding" element={<Onboarding />} />
     </Route>
   )
 );

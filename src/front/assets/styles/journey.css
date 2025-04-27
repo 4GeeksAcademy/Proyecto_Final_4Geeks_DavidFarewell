@@ -13,10 +13,17 @@ img {
 }
 
 /* Elementos principales */
-.moty {
-    position: absolute;
-    top: clamp(20px, 5vh, 50px);
-    left: clamp(60px, 8vw, 120px);
+.navbar {
+    position: relative;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    height: 100vw;
+    width: 100vw;
+    align-items: center;
+    margin-bottom: 100px;
 }
 
 .journey_container {
@@ -25,6 +32,7 @@ img {
     display: flex;
     align-items: center;
     background-color: #130B21;
+    flex-direction: column;
     padding: 20px;
 }
 
@@ -96,7 +104,7 @@ img {
 /* ---- MEDIA QUERIES ---- */
 
 /* Escalar progresivamente hasta 1100px */
-@media (max-width: 2170px) {
+@media (max-width: 2500px) {
     .moty {
         top: clamp(20px, 5vh, 50px);
         left: clamp(40px, 5vw, 120px);
