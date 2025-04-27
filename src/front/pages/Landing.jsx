@@ -34,7 +34,7 @@ const reviews = [
 const subscriptions = [
   {
     plan: "Beginner",
-    price: "9,99€",
+    price: "FREE",
     features: [
       "Two requests at time",
       "One/day delivery",
@@ -44,8 +44,8 @@ const subscriptions = [
     button: "Pay for Beginner",
   },
   {
-    plan: "Pro",
-    price: "19,99€",
+    plan: "Plus",
+    price: "4,99€",
     features: [
       "Two requests at time",
       "One/day delivery",
@@ -55,8 +55,8 @@ const subscriptions = [
     button: "Pay for Pro",
   },
   {
-    plan: "Year",
-    price: "7,99€",
+    plan: "Pro",
+    price: "12,99€",
     features: [
       "Two requests at time",
       "One/day delivery",

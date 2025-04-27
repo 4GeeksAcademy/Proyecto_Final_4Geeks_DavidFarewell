@@ -92,17 +92,23 @@ body {
 /* BRANDS CAROUSEL */
 .brand-carousel {
   position: absolute;
+  align-items: center;
+  justify-content: center;
   bottom: 20px;
   left: 0;
   width: 100%;
   overflow: hidden;
   z-index: 3;
   padding: 0 0;
+  mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
+  margin: 2rem 0;
 }
 
 .brand-track {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
   animation: scroll-left 40s linear infinite;
   padding: 0 2rem;
