@@ -355,11 +355,12 @@ body {
 .carousel-track {
   display: flex;
   gap: 2rem;
+  width: max-content;
   animation: scroll-left 60s linear infinite;
 }
 
 .carousel-wrapper.reverse .carousel-track {
-  animation: scroll-right 60s linear infinite;
+  animation: scroll-left-reverse 120s linear infinite;
 }
 
 @keyframes scroll-left {
@@ -371,12 +372,12 @@ body {
   }
 }
 
-@keyframes scroll-right {
+@keyframes scroll-left-reverse {
   0% {
-    transform: translateX(0%);
+    transform: translateX(-50%);
   }
   100% {
-    transform: translateX(50%);
+    transform: translateX(0%);
   }
 }
 

@@ -10,12 +10,11 @@ import headspace from "../assets/styles/images/Landing_images/Headspace.webp";
 import twilio from "../assets/styles/images/Landing_images/Twilio.png";
 import verizon from "../assets/styles/images/Landing_images/Verizon.png";
 
-// IMÁGENES PARA LOS TABS (puedes cambiarlas fácil luego)
+// IMÁGENES PARA LOS TABS
 import missionsImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
 import progressImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
 import resourcesImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
 import achievementsImg from "/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg";
-
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -31,6 +30,9 @@ const reviews = [
   { name: "Juan Albertillo - Trucker", img: "/assets/img/user6.png" },
 ];
 
+const tripledReviews = [...reviews, ...reviews, ...reviews];
+const quintupledReviews = [...reviews, ...reviews, ...reviews, ...reviews, ...reviews];
+
 const subscriptions = [
   {
     plan: "Beginner",
@@ -41,7 +43,7 @@ const subscriptions = [
       "Unlimited AI assets",
       "Private Trello board",
     ],
-    button: "Pay for Beginner",
+    button: "Start for free",
   },
   {
     plan: "Plus",
@@ -52,7 +54,7 @@ const subscriptions = [
       "Unlimited AI assets",
       "Private Trello board",
     ],
-    button: "Pay for Pro",
+    button: "Pay for Plus",
   },
   {
     plan: "Pro",
@@ -63,18 +65,16 @@ const subscriptions = [
       "Unlimited AI assets",
       "Private Trello board",
     ],
-    button: "Pay for Plus",
+    button: "Pay for Pro",
   },
 ];
 
 const brands = [amazon, facebook, headspace, twilio, verizon];
 
-const repeatedBrands = Array(10).fill(brands).flat(); // ← Cambio aquí para que sea largo y funcione el efecto infinito
+const repeatedBrands = Array(10).fill(brands).flat();
 
 const Landing = () => {
   const [activeTab, setActiveTab] = useState("MISSIONS");
-
-  const doubledReviews = [...reviews, ...reviews]; // Esto está bien para el carrusel de reseñas
 
   const getImageByTab = () => {
     switch (activeTab) {
@@ -208,9 +208,10 @@ const Landing = () => {
           Our clients reviews
         </motion.h2>
 
+        {/* Carrusel normal */}
         <div className="carousel-wrapper">
-          <div className="carousel-track">
-            {doubledReviews.map((r, i) => (
+          <div className="carousel-track normal">
+            {tripledReviews.map((r, i) => (
               <div className="testimonial-card" key={i}>
                 <img src={r.img} alt={r.name} />
                 <p>{r.name}</p>
@@ -221,9 +222,10 @@ const Landing = () => {
           </div>
         </div>
 
+        {/* Carrusel reverse */}
         <div className="carousel-wrapper reverse">
-          <div className="carousel-track">
-            {doubledReviews.map((r, i) => (
+          <div className="carousel-track reverse-track">
+            {quintupledReviews.map((r, i) => (
               <div className="testimonial-card" key={`rev-${i}`}>
                 <img src={r.img} alt={r.name} />
                 <p>{r.name}</p>
