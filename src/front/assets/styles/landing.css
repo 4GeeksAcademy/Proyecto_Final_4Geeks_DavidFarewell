@@ -42,6 +42,18 @@ body {
   z-index: 2;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300px; /* Altura del degradado hacia la siguiente sección */
+  background: linear-gradient(to bottom, rgba(11, 10, 24, 0) 0%, #0b0a18 100%);
+  z-index: 3;
+}
+
+
 .hero h1,
 .hero p,
 .hero .cta-button {

@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link className="navbar-brand" to="/">
-          LEVEL<span>UP</span>
+          <span className="level-text">LEVEL</span><span className="up-text">UP</span>
         </Link>
         <div className="navbar-buttons">
           {store.user ? (
