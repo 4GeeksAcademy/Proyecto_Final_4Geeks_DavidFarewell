@@ -156,7 +156,7 @@ body {
 }
 
 .unlock-cards .card {
-  background: #2d2417;
+  background: #1d172d;
   border-radius: 1.5rem;
   padding: 2.5rem 2rem;
   width: 280px;
@@ -190,8 +190,11 @@ body {
   margin: 0 auto;
   background: #1d172d;
   border-radius: 1.5rem;
-  padding: 3rem 2rem;
+  padding: 2rem 2rem;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tabs {
@@ -212,7 +215,7 @@ body {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
   font-size: 0.9rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); /* sombra permanente */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   position: relative;
 }
 
@@ -223,7 +226,7 @@ body {
 .tabs .active {
   background: #ff5c5c;
   color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* sombra especial para activo */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .tab-content {
@@ -236,15 +239,15 @@ body {
 
 .tab-content img {
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
   border-radius: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .tab-content p {
   color: #cccccc;
   font-size: 1rem;
-  max-width: 700px;
+  max-width: 600px;
   line-height: 1.6;
 }
 
@@ -259,20 +262,19 @@ body {
   align-items: center;
 }
 
-.unlock-cards {
+.section.subscriptions .unlock-cards {
   display: flex;
-  gap: 2.5rem;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  margin-top: 2rem;
+  gap: 2.5rem;
+  flex-wrap: nowrap; /* Importante: NO hacer wrap en escritorio */
 }
 
-.unlock-cards .card {
+.section.subscriptions .unlock-cards .card {
   background: #1d172d;
   border-radius: 1.5rem;
   padding: 2.5rem 2rem;
-  width: 280px;
+  width: 300px;
   min-height: 380px;
   text-align: center;
   display: flex;
@@ -281,25 +283,25 @@ body {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.unlock-cards .card h3 {
+.section.subscriptions .unlock-cards .card h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-.unlock-cards .card .price {
+.section.subscriptions .unlock-cards .card .price {
   font-size: 2rem;
   font-weight: bold;
   margin: 0.5rem 0 1rem;
   color: #ffffff;
 }
 
-.unlock-cards .card ul {
+.section.subscriptions .unlock-cards .card ul {
   list-style: none;
   padding: 0;
   margin: 0 0 1rem 0;
 }
 
-.unlock-cards .card ul li {
+.section.subscriptions .unlock-cards .card ul li {
   margin-bottom: 0.7rem;
   color: #cccccc;
   font-size: 0.95rem;
@@ -308,12 +310,12 @@ body {
   gap: 0.5rem;
 }
 
-.unlock-cards .card ul li::before {
+.section.subscriptions .unlock-cards .card ul li::before {
   content: "✔️";
   color: #bb86fc;
 }
 
-.unlock-cards .card button {
+.section.subscriptions .unlock-cards .card button {
   background: #ff5c5c;
   border: none;
   color: white;
@@ -326,10 +328,20 @@ body {
   box-shadow: 0px 4px 12px rgba(255, 92, 92, 0.4);
 }
 
-.unlock-cards .card button:hover {
+.section.subscriptions .unlock-cards .card button:hover {
   background: #ff7373;
   transform: scale(1.05);
 }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .section.subscriptions .unlock-cards {
+    flex-wrap: wrap; /* En pantallas pequeñas, ahora sí que hacemos wrap */
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 /* TESTIMONIAL CAROUSEL */
 .carousel-wrapper {
