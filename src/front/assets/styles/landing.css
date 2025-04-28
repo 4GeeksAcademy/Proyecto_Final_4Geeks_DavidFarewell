@@ -267,7 +267,7 @@ body {
   justify-content: center;
   align-items: stretch;
   gap: 2.5rem;
-  flex-wrap: nowrap; /* Importante: NO hacer wrap en escritorio */
+  flex-wrap: nowrap;
 }
 
 .section.subscriptions .unlock-cards .card {
@@ -336,12 +336,11 @@ body {
 /* RESPONSIVE */
 @media (max-width: 992px) {
   .section.subscriptions .unlock-cards {
-    flex-wrap: wrap; /* En pantallas pequeñas, ahora sí que hacemos wrap */
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
   }
 }
-
 
 /* TESTIMONIAL CAROUSEL */
 .carousel-wrapper {
@@ -355,15 +354,15 @@ body {
 
 .carousel-track {
   display: flex;
-  gap: 1rem;
-  animation: scroll-right 40s linear infinite;
+  gap: 2rem;
+  animation: scroll-left 60s linear infinite;
 }
 
 .carousel-wrapper.reverse .carousel-track {
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-right 60s linear infinite;
 }
 
-@keyframes scroll-right {
+@keyframes scroll-left {
   0% {
     transform: translateX(0%);
   }
@@ -372,11 +371,20 @@ body {
   }
 }
 
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
 .testimonial-card {
   background-color: #1c162e;
   border-radius: 1.5rem;
-  padding: 1.2rem;
-  width: 220px;
+  padding: 2rem;
+  width: 300px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -389,23 +397,23 @@ body {
 }
 
 .testimonial-card img {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
   object-fit: cover;
 }
 
 .testimonial-card .stars {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: gold;
-  margin: 0.3rem 0;
+  margin: 0.5rem 0;
 }
 
 .testimonial-card .review-text {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #cccccc;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .testimonial-card:hover {
