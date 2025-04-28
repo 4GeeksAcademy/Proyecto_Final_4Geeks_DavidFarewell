@@ -47,7 +47,7 @@ body {
 .hero .cta-button {
   position: relative;
   z-index: 3;
-  max-width: 600px;
+  max-width: 500px; /* Reducido el ancho para dejar respirar la derecha */
 }
 
 .hero h1 {
@@ -66,7 +66,7 @@ body {
 }
 
 .hero p {
-  color: #ccc;
+  color: #ffffff; /* TEXTO HERO VUELVE A SER BLANCO PURO */
   font-size: 1rem;
   margin-top: 1.5rem;
   line-height: 1.6;
@@ -92,26 +92,22 @@ body {
 /* BRANDS CAROUSEL */
 .brand-carousel {
   position: absolute;
-  align-items: center;
-  justify-content: center;
-  bottom: 20px;
+  bottom: 0;
   left: 0;
   width: 100%;
+  background: #0b0a18;
   overflow: hidden;
   z-index: 3;
-  padding: 0 0;
+  padding: 1.5rem 0;
   mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #0b0a18 10%, #0b0a18 90%, transparent);
-  margin: 2rem 0;
 }
 
 .brand-track {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 3rem;
   animation: scroll-left 40s linear infinite;
-  padding: 0 2rem;
 }
 
 .brand-logo {
@@ -129,7 +125,7 @@ body {
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
@@ -230,6 +226,7 @@ body {
   gap: 1rem;
   animation: scroll-right 40s linear infinite;
 }
+
 .carousel-wrapper.reverse .carousel-track {
   animation: scroll-left 40s linear infinite;
 }

@@ -69,10 +69,12 @@ const subscriptions = [
 
 const brands = [amazon, facebook, headspace, twilio, verizon];
 
+const repeatedBrands = Array(10).fill(brands).flat(); // ← Cambio aquí para que sea largo y funcione el efecto infinito
+
 const Landing = () => {
   const [activeTab, setActiveTab] = useState("MISSIONS");
-  const doubledReviews = [...reviews, ...reviews];
-  const doubledBrands = [...brands, ...brands];
+
+  const doubledReviews = [...reviews, ...reviews]; // Esto está bien para el carrusel de reseñas
 
   const getImageByTab = () => {
     switch (activeTab) {
@@ -110,7 +112,7 @@ const Landing = () => {
       {/* BRANDS CAROUSEL */}
       <div className="brand-carousel">
         <div className="brand-track">
-          {doubledBrands.map((img, index) => (
+          {repeatedBrands.map((img, index) => (
             <img key={index} src={img} alt={`brand-${index}`} className="brand-logo" />
           ))}
         </div>
