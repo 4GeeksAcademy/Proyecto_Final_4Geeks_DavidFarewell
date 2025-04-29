@@ -18,10 +18,14 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/" onClick={handleLogoClick}>
           <span className="level-text">LEVEL</span><span className="up-text">UP</span>
         </Link>
         <div className="navbar-buttons">

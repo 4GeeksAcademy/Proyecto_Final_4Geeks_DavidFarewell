@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../assets/styles/landing.css";
 
@@ -75,6 +76,11 @@ const repeatedBrands = Array(10).fill(brands).flat();
 
 const Landing = () => {
   const [activeTab, setActiveTab] = useState("MISSIONS");
+  const navigate = useNavigate();
+
+  const handleNavigateRegister = () => {
+    navigate("/register");
+  };
 
   const getImageByTab = () => {
     switch (activeTab) {
@@ -104,7 +110,13 @@ const Landing = () => {
           Level Up is your companion on the journey to a healthier, more balanced life.
           Through personalized missions and challenges, you'll improve your physical and mental well-being.
         </motion.p>
-        <motion.button className="cta-button" variants={fadeInUp} initial="hidden" whileInView="visible">
+        <motion.button
+          className="cta-button"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          onClick={handleNavigateRegister}
+        >
           Start your journey
         </motion.button>
       </section>
@@ -245,7 +257,13 @@ const Landing = () => {
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible">
           <span>Level Up your life</span>
         </motion.h2>
-        <motion.button className="cta-button" variants={fadeInUp} initial="hidden" whileInView="visible">
+        <motion.button
+          className="cta-button"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          onClick={handleNavigateRegister}
+        >
           CLICK HERE
         </motion.button>
       </section>
