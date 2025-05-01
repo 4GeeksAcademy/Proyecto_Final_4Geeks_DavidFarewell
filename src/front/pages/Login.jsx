@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "../assets/styles/login.css";
+import styles from "../assets/styles/Login.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -24,10 +24,10 @@ const Login = () => {
       const data = await resp.json();
 
       if (resp.ok) {
-        localStorage.setItem("token", data.token);       // ✅ Guardar JWT
-        localStorage.setItem("user_id", data.user_id);   // ✅ Guardar ID
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user_id", data.user_id);
         alert("Login exitoso");
-        navigate("/landing"); // o /profile si preferís
+        navigate("/landing");
       } else {
         alert(data.msg || "Invalid credentials");
       }
@@ -38,16 +38,19 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page">
+    <div className={styles.loginPage}>
       <motion.div
-        className="login-container"
+        className={styles.loginContainer}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -30 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="login-box login-left">
-          <h1><span className="level-text-login">LEVEL</span><span className="up-text-login">UP</span></h1>
+        <div className={`${styles.loginBox} ${styles.loginLeft}`}>
+          <h1>
+            <span className={styles.levelText}>LEVEL</span>
+            <span className={styles.upText}>UP</span>
+          </h1>
           <h2>Log in</h2>
           <p>Please enter your details or click here to register</p>
 
@@ -64,35 +67,34 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <div className="remember-me">
+          <div className={styles.rememberMe}>
             <input type="checkbox" id="remember" />
             <label htmlFor="remember">Remember me</label>
           </div>
 
-          <button className="login-btn" onClick={handleLogin}>Log in</button>
+          <button className={styles.loginBtn} onClick={handleLogin}>Log in</button>
 
-          <button className="github-btn">
+          <button className={styles.githubBtn}>
             <i className="fab fa-github"></i> Log in with Github
           </button>
 
-          <p className="signup-link">
-            Don't have an account?{" "}
-            <span onClick={() => navigate("/register")}>Sign up</span>
+          <p className={styles.signupLink}>
+            Don't have an account? <span onClick={() => navigate("/register")}>Sign up</span>
           </p>
         </div>
 
-        <div className="login-box login-right">
-          <div className="info-list">
-            <div className="info-item">
+        <div className={`${styles.loginBox} ${styles.loginRight}`}>
+          <div className={styles.infoList}>
+            <div className={styles.infoItem}>
               <i className="fas fa-check-circle"></i> <span>Accept missions</span>
             </div>
-            <div className="info-item">
+            <div className={styles.infoItem}>
               <i className="fas fa-chart-line"></i> <span>Level up your life</span>
             </div>
-            <div className="info-item">
+            <div className={styles.infoItem}>
               <i className="fas fa-tasks"></i> <span>Track your progress</span>
             </div>
-            <div className="info-item">
+            <div className={styles.infoItem}>
               <i className="fas fa-trophy"></i> <span>Unlock achievements</span>
             </div>
           </div>

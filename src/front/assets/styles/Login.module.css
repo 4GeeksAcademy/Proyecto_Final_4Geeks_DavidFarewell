@@ -1,11 +1,6 @@
-body, html {
-  margin: auto;
-  padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* Login.module.css actualizado para CSS Modules con correcciones visuales y responsive completas */
 
-.login-page {
+.loginPage {
   position: relative;
   background: url('/workspaces/Proyecto_Final_4Geeks_DavidFarewell/src/front/assets/styles/images/Landing_images/waves_2k_upscaled.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -17,18 +12,18 @@ body, html {
   z-index: 1;
 }
 
-.login-page::before {
+.loginPage::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Nivel de oscuridad del fondo */
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 2;
 }
 
-.login-container {
+.loginContainer {
   display: flex;
   width: 100%;
   max-width: 1000px;
@@ -38,9 +33,10 @@ body, html {
   background: transparent;
   position: relative;
   z-index: 3;
+  align-items: stretch;
 }
 
-.login-box {
+.loginBox {
   width: 50%;
   box-sizing: border-box;
   padding: 40px;
@@ -49,48 +45,49 @@ body, html {
   justify-content: center;
 }
 
-.login-left {
+.loginLeft {
   background-color: rgba(0, 0, 0, 0.9);
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
 }
 
-.login-right {
+.loginRight {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(6px);
   color: white;
   border-top-right-radius: 16px;
   border-bottom-right-radius: 16px;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.level-text-login {
+.levelText {
   color: #ffffff;
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 25px;
 }
 
-.up-text-login {
-  color: #ff4f4f;
+.upText {
+  color: #ff5c5c;
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 25px;
 }
 
-h2 {
+.heading2 {
   color: white;
   margin: 0 0 10px;
 }
 
-p {
+.paragraph {
   color: white;
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-input[type="email"],
-input[type="password"] {
+.inputField {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
@@ -101,11 +98,11 @@ input[type="password"] {
   font-size: 16px;
 }
 
-input::placeholder {
+::placeholder {
   color: #ccc;
 }
 
-.remember-me {
+.rememberMe {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -114,48 +111,49 @@ input::placeholder {
   margin-bottom: 20px;
 }
 
-button {
+.loginBtn {
   padding: 12px;
   font-size: 16px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   margin-bottom: 12px;
-}
-
-.login-btn {
   background-color: #ff5c5c;
   color: black;
   font-weight: bold;
 }
 
-.github-btn {
+.githubBtn {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 12px;
   background-color: black;
   color: white;
   border: 1px solid #444;
 }
 
-.signup-link {
+.signupLink {
   font-size: 14px;
   color: white;
   text-align: center;
 }
 
-.signup-link span {
+.signupLink span {
   color: orange;
   cursor: pointer;
 }
 
-.info-list {
+.infoList {
   display: flex;
   flex-direction: column;
-  padding-left: 25%;
-  gap: 20px;
+  gap: 100px;
   align-items: flex-start;
-  height: 100%;
 }
 
-.info-item {
+.infoItem {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -163,40 +161,39 @@ button {
   color: white;
 }
 
-.info-item i {
+.infoItem i {
   font-size: 32px;
-  color: orange;
+  display: flex;
+  align-content: space-between;
+  color: #ff5c5c;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  .login-container {
+  .loginContainer {
     flex-direction: column;
-    border-radius: 0;
     max-width: 500px;
+    border-radius: 16px;
   }
 
-  .login-box {
+  .loginBox {
     width: 100%;
-    border-radius: 0 !important;
     padding: 30px 20px;
   }
 
-  .login-left {
+  .loginLeft {
     border-radius: 16px 16px 0 0;
   }
 
-  .login-right {
+  .loginRight {
     border-radius: 0 0 16px 16px;
     align-items: center;
   }
 
-  .info-list {
+  .infoList {
     align-items: center;
-    padding-left: 0;
   }
 
-  .info-item {
+  .infoItem {
     justify-content: center;
     text-align: center;
   }
