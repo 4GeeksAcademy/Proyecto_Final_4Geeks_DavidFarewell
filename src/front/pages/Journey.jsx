@@ -1,17 +1,17 @@
-import "../assets/styles/journey.css";
+import styles from "../assets/styles/Journey.module.css";
 import AnimatedPage from "../components/AnimatedPage";
 import Navbar from "../components/Navbar";
 
 const Journey = () => {
     return (
         <AnimatedPage>
-            <div className="journey_container">
-                <div className="navbar">
+            <div className={styles['journey_container']}>
+                <div className={styles.navbar}>
                     <Navbar></Navbar>
                 </div>
-                <div className="content">
-                    <div className="menu_month">
-                        <div className="menu_text">
+                <div className={styles.content}>
+                    <div className={styles['menu_month']}>
+                        <div className={styles['menu_text']}>
                             <h3>May</h3>
                             <p>Week 1</p>
                             <p>Week 2</p>
@@ -19,17 +19,17 @@ const Journey = () => {
                             <p>Week 4</p>
                         </div>
                     </div>
-                    <div className="cards">
-                        <div className="button">
-                            <div className="card card1">
+                    <div className={styles.cards}>
+                        <div className={styles.button}>
+                            <div className={`${styles.card} ${styles.card1}`}>
                                 <img src="src/front/assets/styles/images/Alegre1.webp" alt="moty_alegre" />
                             </div>
-                            <div className="card card2"></div>
-                            <div className="card card3"></div>
-                            <div className="card card3"></div>
-                            <div className="card card3"></div>
-                            <div className="card card3"></div>
-                            <div className="card card3"></div>
+                            <div className={`${styles.card} ${styles.card2}`}></div>
+                            <div className={`${styles.card} ${styles.card3}`}></div>
+                            <div className={`${styles.card} ${styles.card3}`}></div>
+                            <div className={`${styles.card} ${styles.card3}`}></div>
+                            <div className={`${styles.card} ${styles.card3}`}></div>
+                            <div className={`${styles.card} ${styles.card3}`}></div>
                         </div>
                     </div>
                 </div>

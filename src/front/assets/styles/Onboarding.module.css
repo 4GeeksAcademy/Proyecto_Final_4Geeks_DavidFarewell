@@ -84,6 +84,7 @@ img{
         padding-bottom: 50px;
         padding-left: 20px;
     }
+}
 
 @media (max-width: 500px) {
     img{
@@ -105,5 +106,4 @@ img{
         height: 40px;
         box-shadow: 0px 8px 0px rgba(9, 3, 19, 1);
     }
-}
 }
