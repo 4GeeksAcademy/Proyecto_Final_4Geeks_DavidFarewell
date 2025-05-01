@@ -156,15 +156,16 @@
 .infoItem {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   font-size: 20px;
   color: white;
 }
 
 .infoItem i {
-  font-size: 32px;
   display: flex;
-  align-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 35px;
   color: #ff5c5c;
 }
 
