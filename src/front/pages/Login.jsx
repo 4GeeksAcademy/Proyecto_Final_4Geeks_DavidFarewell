@@ -38,63 +38,72 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginPage}>
+    <div className={styles.loginViewPage}>
       <motion.div
-        className={styles.loginContainer}
+        className={styles.loginViewContainer}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -30 }}
         transition={{ duration: 0.5 }}
       >
-        <div className={`${styles.loginBox} ${styles.loginLeft}`}>
+        {/* Lado izquierdo (formulario) */}
+        <div className={`${styles.loginViewBox} ${styles.loginViewLeft}`}>
           <h1>
-            <span className={styles.levelText}>LEVEL</span>
-            <span className={styles.upText}>UP</span>
+            <span className={styles.loginViewTitle}>LEVEL</span>
+            <span className={styles.loginViewTitleAccent}>UP</span>
           </h1>
-          <h2>Log in</h2>
-          <p>Please enter your details or click here to register</p>
+          <h2 className={styles.loginViewHeading2}>Log in</h2>
+          <p className={styles.loginViewParagraph}>
+            Please enter your details or click here to register
+          </p>
 
           <input
             type="email"
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className={styles.loginViewInput}
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className={styles.loginViewInput}
           />
 
-          <div className={styles.rememberMe}>
+          <div className={styles.loginViewRemember}>
             <input type="checkbox" id="remember" />
             <label htmlFor="remember">Remember me</label>
           </div>
 
-          <button className={styles.loginBtn} onClick={handleLogin}>Log in</button>
+          <button className={styles.loginViewBtn} onClick={handleLogin}>
+            Log in
+          </button>
 
-          <button className={styles.githubBtn}>
+          <button className={styles.loginViewGithubBtn}>
             <i className="fab fa-github"></i> Log in with Github
           </button>
 
-          <p className={styles.signupLink}>
-            Don't have an account? <span onClick={() => navigate("/register")}>Sign up</span>
+          <p className={styles.loginViewSignup}>
+            Don't have an account?{" "}
+            <span onClick={() => navigate("/register")}>Sign up</span>
           </p>
         </div>
 
-        <div className={`${styles.loginBox} ${styles.loginRight}`}>
-          <div className={styles.infoList}>
-            <div className={styles.infoItem}>
+        {/* Lado derecho (info) */}
+        <div className={`${styles.loginViewBox} ${styles.loginViewRight}`}>
+          <div className={styles.loginViewInfoList}>
+            <div className={styles.loginViewInfoItem}>
               <i className="fas fa-check-circle"></i> <span>Accept missions</span>
             </div>
-            <div className={styles.infoItem}>
+            <div className={styles.loginViewInfoItem}>
               <i className="fas fa-chart-line"></i> <span>Level up your life</span>
             </div>
-            <div className={styles.infoItem}>
+            <div className={styles.loginViewInfoItem}>
               <i className="fas fa-tasks"></i> <span>Track your progress</span>
             </div>
-            <div className={styles.infoItem}>
+            <div className={styles.loginViewInfoItem}>
               <i className="fas fa-trophy"></i> <span>Unlock achievements</span>
             </div>
           </div>
