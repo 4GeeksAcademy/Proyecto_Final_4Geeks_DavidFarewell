@@ -7,12 +7,12 @@ const photo = <img src="" alt="" />
 
 const Task = () => {
     return(
-        <div className={styles.container}>
-            <div className={styles.photo}>
-                
-            </div>
-            <div className={styles.text}>
+        <div className={styles.taskContainer}>
+            <div className={styles.taskPhoto}>
 
+            </div>
+            <div className={styles.taskText}>
+                
             </div>
         </div>
     )

@@ -114,7 +114,7 @@ const achievements = [
 const Achievements = () =>{
     return(
         <div className={styles.container}>
-            <div className={styles.navbar}>
+            <div className={styles.navbarGrid}>
                 <Navbar />
             </div>
             <div className={styles.grid}>

@@ -47,16 +47,8 @@ const Navbar = () => {
 
         <div className="dropdown2">
           <button className="nav-button" onClick={() => toggleDropdown('journey')}>
-            My Journey
+            Journey
           </button>
-          {openDropdown === 'journey' && (
-            <div className="dropdown-menu">
-              <a href="#">Week 1</a>
-              <a href="#">Week 2</a>
-              <a href="#">Week 3</a>
-              <a href="#">Week 4</a>
-            </div>
-          )}
         </div>
       </div>
 

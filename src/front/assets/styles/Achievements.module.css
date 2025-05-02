@@ -15,11 +15,12 @@
     box-sizing: border-box;
 }
 
-:local(.navbar) {
-    width: 100%;
-    padding: 1rem 2rem;
-    box-sizing: border-box;
-}
+:local(.navbarGrid) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 :local(.grid) {
     display: flex;

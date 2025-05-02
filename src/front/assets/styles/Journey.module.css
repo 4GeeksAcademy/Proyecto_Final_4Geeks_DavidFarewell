@@ -5,28 +5,17 @@
     --gap-mobile: 1.5rem;
 }
 
-:local(p) {
-    font-size: 1.125rem;
-}
-
-:local(h3) {
-    font-size: 2rem;
-}
-
-:local(img) {
-    width: 100%;
-    height: auto;
-    max-width: var(--card-size-desktop);
-}
-
 /* ---- Layout general ---- */
 
-:local(.navbar) {
+:local(.navbarGrid) {
     position: relative;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 :local(.journey_container) {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;

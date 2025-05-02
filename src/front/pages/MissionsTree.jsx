@@ -5,11 +5,11 @@ import Navbar from "../components/Navbar"
 
 const MissionsTree = () => {
     return(
-        <div className={styles.container}>
-            <div className={styles.missionsCompleted}>
+        <div className={styles.treeContainer}>
+            <div className={styles.treeC}>
                 
             </div>
-            <div className={styles.tasksButtons}>
+            <div className={styles.treeC}>
                 <div>
                     
                 </div>
