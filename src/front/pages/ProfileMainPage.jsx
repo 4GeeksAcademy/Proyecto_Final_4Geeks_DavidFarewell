@@ -1,4 +1,3 @@
-// src/front/pages/ProfileMainPage.jsx
 import React from "react";
 import styles from "../assets/styles/ProfileMainPage.module.css";
 
@@ -15,117 +14,109 @@ const ProfileMainPage = () => {
   const achievements = new Array(12).fill("https://via.placeholder.com/40");
 
   return (
-    <div className={styles.profileMainContainer}>
-      {/* LEFT COLUMN */}
-      <div className={styles.profileSidebar}>
-        <div className={styles.profileCard}>
+    <div className={styles.ProfileMain_container}>
+      <div className={styles.ProfileMain_layoutGrid}>
+        {/* Profile Info */}
+        <div className={styles.ProfileMain_card}>
           <p><strong>Name:</strong> David Castillo</p>
           <p><strong>Years:</strong> 29</p>
           <p><strong>Job:</strong> Architect</p>
           <p><strong>City:</strong> Barcelona</p>
-          <button className={styles.profileEditIcon}>
-            <i className="fas fa-pen"></i>
-          </button>
+          <button className={styles.ProfileMain_editButton}><i className="fas fa-pen"></i></button>
         </div>
 
-        <div className={`${styles.profileCard} ${styles.profileTaskCard}`}>
-          <h3>Today’s Tasks</h3>
-          <ul className={styles.profileTaskList}>
+        {/* Tasks */}
+        <div className={styles.ProfileMain_card}>
+          <h3 className={styles.ProfileMain_cardTitle}>Today’s Tasks</h3>
+          <ul className={styles.ProfileMain_taskList}>
             {tasks.map((task, i) => (
-              <li key={i}>
+              <li key={i} className={styles.ProfileMain_taskItem}>
                 <span>{task.name}</span>
-                <span>
-                  {task.status === "done" && "🟢"}
-                  {task.status === "in-progress" && "🟠"}
-                  {task.status === "pending" && "⚪"}
-                </span>
+                <span className={`${styles.ProfileMain_statusDot} ${task.status === "done" ? styles.ProfileMain_statusDone : task.status === "in-progress" ? styles.ProfileMain_statusInProgress : styles.ProfileMain_statusPending}`} />
               </li>
             ))}
           </ul>
+          <button className={styles.ProfileMain_contentButton}>ALL CONTENT</button>
         </div>
 
-        <button className={styles.profileAllContentButton}>ALL CONTENT</button>
-      </div>
-
-      {/* CENTER COLUMN */}
-      <div>
-        <div className={styles.profileWelcomeCard}>
-          <div className={styles.profileWelcomeText}>
-            <h1>Hello, <strong>David!</strong></h1>
+        {/* Hero */}
+        <div className={styles.ProfileMain_heroCard}>
+          <div className={styles.ProfileMain_heroText}>
+            <h2>Hello, <strong>David!</strong></h2>
             <p>Your inner journey continues today.</p>
-            <p>
-              Your path to a stronger, wiser, and more focused version of
-              yourself begins with a single step.
-            </p>
-            <button className={styles.profileJourneyButton}>See your journey</button>
+            <p>Your path to a stronger, wiser, and more focused version of yourself begins with a single step.</p>
+            <button className={styles.ProfileMain_journeyButton}>See your journey</button>
           </div>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Genie"
-            className={styles.profileWelcomeImage}
-          />
+          <img src="https://via.placeholder.com/120" alt="Genie" className={styles.ProfileMain_heroImage} />
         </div>
 
-        <div className={styles.profileCardSection}>
-          <div className={styles.profileGlobalStats}>
-            <h3>Global Stats</h3>
-            <div className={styles.profileStatsGrid}>
-              <div><strong>Tasks completed</strong><br />54</div>
-              <div><strong>Time in the app</strong><br />23 days</div>
-              <div><strong>Daily missions</strong><br />20</div>
-              <div><strong>Lorem Ipsum</strong><br />Lorem Ipsum</div>
-            </div>
-          </div>
-
-          <div className={styles.profileAchievements}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <h3>Achievements</h3>
-              <button className={styles.profileSeeAllBtn}>See all</button>
-            </div>
-            <div className={styles.profileAchievementsGrid}>
-              {achievements.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`achievement-${i}`}
-                  className={styles.profileAchievementIcon}
-                />
-              ))}
-            </div>
+        {/* Avatar */}
+        <div className={styles.ProfileMain_card}>
+          <div>
+            <img src="https://via.placeholder.com/60" alt="Avatar" className={styles.ProfileMain_avatarImage} />
+            <p><strong>David Castillo</strong></p>
+            <div className={styles.ProfileMain_levelBar}><div className={styles.ProfileMain_levelFill} /></div>
+            <p>Lvl 6</p>
           </div>
         </div>
-      </div>
 
-      {/* RIGHT COLUMN */}
-      <div className={styles.profileSidebarRight}>
-        <div className={styles.profileUserInfoCard}>
-          <img
-            src="https://via.placeholder.com/60"
-            alt="Avatar"
-          />
-          <p><strong>David Castillo</strong></p>
-          <div className={styles.profileLevelBar}>
-            <div className={styles.profileLevelFill}></div>
+        {/* Calendar */}
+        <div className={styles.ProfileMain_card}>
+          <div className={styles.ProfileMain_calendarHeader}>
+            <span>{"<"}</span>
+            <strong>May 2025</strong>
+            <span>{">"}</span>
           </div>
-          <p>Lvl 6</p>
+          <div className={styles.ProfileMain_calendarGrid}>
+            {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+              <span key={`d-${i}`} className={styles.ProfileMain_calendarDay}>{d}</span>
+            ))}
+            {Array.from({ length: 35 }, (_, i) => (
+              <span
+                key={`date-${i}`}
+                className={`${styles.ProfileMain_calendarDate} ${i === 10 ? styles.ProfileMain_highlightedDate : ""}`}
+              >
+                {i > 3 ? i - 3 : ""}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <div className={styles.profileCalendarCard}>
-          <h3>&lt; May 2025 &gt;</h3>
-          <div className="calendarPlaceholder">📅 Calendar will go here</div>
+        {/* Stats */}
+        <div className={styles.ProfileMain_card}>
+          <h3 className={styles.ProfileMain_cardTitle}>Global Stats</h3>
+          <div className={styles.ProfileMain_statsGrid}>
+            <div><p className={styles.ProfileMain_statLabel}>Tasks completed</p><p className={styles.ProfileMain_statValue}>54</p></div>
+            <div><p className={styles.ProfileMain_statLabel}>Time in the app</p><p className={styles.ProfileMain_statValue}>23 days</p></div>
+            <div><p className={styles.ProfileMain_statLabel}>Daily missions</p><p className={styles.ProfileMain_statValue}>20</p></div>
+            <div><p className={styles.ProfileMain_statLabel}>Lorem Ipsum</p><p className={styles.ProfileMain_statValue}>Lorem Ipsum</p></div>
+          </div>
         </div>
 
-        <div className={styles.profileProgressCard}>
-          <h3>Week’s progress</h3>
+        {/* Achievements */}
+        <div className={styles.ProfileMain_card}>
+          <div className={styles.ProfileMain_cardHeaderWithBtn}>
+            <h3>Achievements</h3>
+            <button className={styles.ProfileMain_seeAllBtn}>See all</button>
+          </div>
+          <div className={styles.ProfileMain_achievementsGrid}>
+            {achievements.map((src, i) => (
+              <img key={i} src={src} alt={`achievement-${i}`} className={styles.ProfileMain_achievementIcon} />
+            ))}
+          </div>
+        </div>
+
+        {/* Week progress */}
+        <div className={styles.ProfileMain_card}>
+          <h3 className={styles.ProfileMain_cardTitle}>Week’s progress</h3>
           <p>Missions</p>
-          <div className={styles.profileLevelBar}>
-            <div className={styles.profileLevelFill}></div>
-          </div>
+          <div className={styles.ProfileMain_levelBar}><div className={styles.ProfileMain_levelFill} /></div>
           <p>XP Gained: <strong>+560</strong></p>
         </div>
 
-        <div className={styles.profileReflectionCard}>
-          <h3>Today’s Reflection</h3>
+        {/* Reflection */}
+        <div className={styles.ProfileMain_card}>
+          <h3 className={styles.ProfileMain_cardTitle}>Today’s Reflection</h3>
           <p>Pause. Feel. Choose your path for today.</p>
         </div>
       </div>

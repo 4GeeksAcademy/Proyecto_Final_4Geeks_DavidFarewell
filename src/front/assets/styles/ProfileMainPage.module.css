@@ -1,269 +1,209 @@
-.profileMainContainer {
-    display: grid;
-    grid-template-columns: 300px 1fr 300px;
-    gap: 20px;
-    padding: 40px;
-    background-color: #140d2c;
-    min-height: 100vh;
+.ProfileMain_container {
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #0b0a18;
+    font-family: "Poppins", sans-serif;
     color: white;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  /* LEFT SIDEBAR */
-  .profileSidebar {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
   }
   
-  .profileCard {
-    background-color: #1e1537;
-    border-radius: 16px;
-    padding: 20px;
+  .ProfileMain_layoutGrid {
+    width: 95vw;
+    height: 95vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  /* Card base */
+  .ProfileMain_card {
+    background-color: #1d172d;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
   }
   
-  .profileEditIcon {
+  /* Grid order */
+  .ProfileMain_card:nth-child(1) { grid-column: span 2; }
+  .ProfileMain_card:nth-child(2) { grid-column: span 2; }
+  .ProfileMain_heroCard         { grid-column: span 6; display: flex; justify-content: space-between; align-items: center; padding: 2rem; background-color: #1d172d; border-radius: 1rem; overflow: hidden; }
+  .ProfileMain_card:nth-child(4){ grid-column: span 2; }
+  .ProfileMain_card:nth-child(5){ grid-column: span 4; }
+  .ProfileMain_card:nth-child(6){ grid-column: span 4; }
+  .ProfileMain_card:nth-child(7){ grid-column: span 4; }
+  .ProfileMain_card:nth-child(8){ grid-column: span 6; }
+  .ProfileMain_card:nth-child(9){ grid-column: span 6; }
+  
+  /* Hero */
+  .ProfileMain_heroText h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .ProfileMain_heroImage {
+    width: 120px;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* Texts */
+  .ProfileMain_cardTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .ProfileMain_editButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
     border: none;
     color: #ff5c5c;
     font-size: 1.2rem;
     cursor: pointer;
   }
   
-  .profileAllContentButton {
-    margin-top: auto;
-    padding: 15px;
-    background-color: #ff5c5c;
-    border: none;
-    border-radius: 12px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  
-  .profileAllContentButton:hover {
-    transform: scale(1.03);
-  }
-  
-  /* TASK CARD */
-  .profileTaskCard h3 {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-  }
-  
-  .profileTaskList {
+  .ProfileMain_taskList {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
-  .profileTaskList li {
+  .ProfileMain_taskItem {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 0.5rem;
   }
-  
-  /* CENTER COLUMN */
-  .profileWelcomeCard {
-    grid-column: span 1;
-    background-color: #1e1537;
-    border-radius: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
+  .ProfileMain_statusDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
   }
+  .ProfileMain_statusDone { background-color: #4caf50; }
+  .ProfileMain_statusInProgress { background-color: #ffc107; }
+  .ProfileMain_statusPending { background-color: #f44336; }
   
-  .profileWelcomeText {
-    max-width: 600px;
-  }
-  
-  .profileWelcomeText h1 {
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  
-  .profileWelcomeText p {
-    margin: 15px 0;
-    color: #bbbbbb;
-    font-size: 1rem;
-  }
-  
-  .profileJourneyButton {
+  .ProfileMain_contentButton,
+  .ProfileMain_journeyButton,
+  .ProfileMain_seeAllBtn {
     background-color: #ff5c5c;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 12px;
+    padding: 0.6rem 1rem;
+    border-radius: 0.8rem;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 1rem;
   }
   
-  .profileWelcomeImage {
-    max-width: 180px;
-    height: auto;
-  }
-  
-  /* GLOBAL STATS + ACHIEVEMENTS */
-  .profileCardSection {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  .profileGlobalStats,
-  .profileAchievements {
-    background-color: #1e1537;
-    border-radius: 16px;
-    padding: 20px;
-    flex: 1;
-  }
-  
-  .profileGlobalStats h3,
-  .profileAchievements h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-  
-  .profileStatsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 10px;
-    column-gap: 20px;
-  }
-  
-  .profileStatsGrid div {
-    font-size: 14px;
-    color: #bbbbbb;
-  }
-  
-  .profileStatsGrid div strong {
-    color: white;
-  }
-  
-  .profileAchievementsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 40px);
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .profileAchievementIcon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-  }
-  
-  .profileSeeAllBtn {
-    font-size: 0.85rem;
-    background: #ff5c5c;
-    padding: 5px 10px;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    border: none;
-  }
-  
-  /* RIGHT SIDEBAR */
-  .profileSidebarRight {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .profileUserInfoCard {
-    background-color: #1e1537;
-    padding: 20px;
-    border-radius: 16px;
-    text-align: center;
-  }
-  
-  .profileUserInfoCard img {
-    border-radius: 50%;
+  /* Avatar & Progress */
+  .ProfileMain_avatarImage {
     width: 60px;
     height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
   }
-  
-  .profileLevelBar {
-    margin-top: 10px;
-    background-color: #3a2d52;
+  .ProfileMain_levelBar {
+    background-color: #333;
     height: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
+    width: 100%;
+    margin: 0.3rem 0;
   }
-  
-  .profileLevelFill {
+  .ProfileMain_levelFill {
     height: 100%;
     background-color: #a066ff;
     width: 60%;
   }
   
-  .profileCalendarCard {
-    background-color: #1e1537;
-    border-radius: 16px;
-    padding: 20px;
+  /* Calendar */
+  .ProfileMain_calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.3rem;
     text-align: center;
   }
+  .ProfileMain_calendarDay {
+    font-weight: bold;
+    color: #ccc;
+  }
+  .ProfileMain_calendarDate {
+    background-color: #2e2e2e;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: #fff;
+  }
+  .ProfileMain_highlightedDate {
+    background-color: #ff5c5c;
+  }
   
-  .calendarPlaceholder {
-    height: 200px;
-    background-color: #2b2240;
-    border-radius: 12px;
-    margin-top: 10px;
+  /* Stats */
+  .ProfileMain_statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .ProfileMain_statLabel {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  .ProfileMain_statValue {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Achievements */
+  .ProfileMain_achievementsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 40px);
+    gap: 0.3rem;
+  }
+  .ProfileMain_achievementIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.3rem;
+    object-fit: cover;
+  }
+  .ProfileMain_cardHeaderWithBtn {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    color: #ccc;
-    font-size: 14px;
   }
   
-  .profileProgressCard,
-  .profileReflectionCard {
-    background-color: #1e1537;
-    border-radius: 16px;
-    padding: 20px;
+  @media (max-width: 1100px) {
+    .ProfileMain_layoutGrid {
+      grid-template-columns: repeat(6, 1fr);
+      height: auto;
+    }
+    .ProfileMain_heroCard {
+      flex-direction: column;
+      text-align: center;
+    }
   }
-  
-  .profileProgressCard p {
-    margin: 8px 0;
-  }
-  
-  .profileReflectionCard p {
-    margin: 0;
-    color: #ccc;
-    font-size: 14px;
-  }
-  
-  /* RESPONSIVE */
-  @media (max-width: 1200px) {
-    .profileMainContainer {
+  @media (max-width: 768px) {
+    .ProfileMain_layoutGrid {
       grid-template-columns: 1fr;
+      height: auto;
+      gap: 0.5rem;
+      padding: 0.5rem;
     }
-  
-    .profileCardSection {
+    .ProfileMain_heroCard {
       flex-direction: column;
-    }
-  
-    .profileWelcomeCard {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .profileWelcomeImage {
-      margin-top: 20px;
-      max-width: 120px;
-    }
-  
-    .profileSidebar,
-    .profileSidebarRight {
-      grid-column: 1 / -1;
+      gap: 1rem;
     }
   }
   
