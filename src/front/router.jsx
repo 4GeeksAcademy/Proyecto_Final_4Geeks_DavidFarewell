@@ -10,6 +10,8 @@ import Journey from "./pages/Journey";
 import Onboarding from "./pages/Onboarding";
 import Profile2 from "./pages/Profile2";
 import Achievements from "./pages/Achievements";
+import MissionsTree from "./pages/MissionsTree";
+import Task from "./pages/Task";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +46,8 @@ export const router = createBrowserRouter(
       <Route path="onboarding" element={<Onboarding />} />
       <Route path="profile2" element={<Profile2 />} />
       <Route path="achievements" element={<Achievements />} />
+      <Route path="missionstree" element={<MissionsTree />} />
+      <Route path="task" element={<Task />} />
     </Route>
   )
 );
