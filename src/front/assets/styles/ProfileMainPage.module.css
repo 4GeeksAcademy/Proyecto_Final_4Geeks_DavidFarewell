@@ -1,0 +1,269 @@
+.profileMainContainer {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 20px;
+    padding: 40px;
+    background-color: #140d2c;
+    min-height: 100vh;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* LEFT SIDEBAR */
+  .profileSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profileCard {
+    background-color: #1e1537;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .profileEditIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #ff5c5c;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .profileAllContentButton {
+    margin-top: auto;
+    padding: 15px;
+    background-color: #ff5c5c;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .profileAllContentButton:hover {
+    transform: scale(1.03);
+  }
+  
+  /* TASK CARD */
+  .profileTaskCard h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .profileTaskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .profileTaskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  /* CENTER COLUMN */
+  .profileWelcomeCard {
+    grid-column: span 1;
+    background-color: #1e1537;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .profileWelcomeText {
+    max-width: 600px;
+  }
+  
+  .profileWelcomeText h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .profileWelcomeText p {
+    margin: 15px 0;
+    color: #bbbbbb;
+    font-size: 1rem;
+  }
+  
+  .profileJourneyButton {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .profileWelcomeImage {
+    max-width: 180px;
+    height: auto;
+  }
+  
+  /* GLOBAL STATS + ACHIEVEMENTS */
+  .profileCardSection {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .profileGlobalStats,
+  .profileAchievements {
+    background-color: #1e1537;
+    border-radius: 16px;
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .profileGlobalStats h3,
+  .profileAchievements h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .profileStatsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 20px;
+  }
+  
+  .profileStatsGrid div {
+    font-size: 14px;
+    color: #bbbbbb;
+  }
+  
+  .profileStatsGrid div strong {
+    color: white;
+  }
+  
+  .profileAchievementsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 40px);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .profileAchievementIcon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  
+  .profileSeeAllBtn {
+    font-size: 0.85rem;
+    background: #ff5c5c;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  /* RIGHT SIDEBAR */
+  .profileSidebarRight {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .profileUserInfoCard {
+    background-color: #1e1537;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+  }
+  
+  .profileUserInfoCard img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .profileLevelBar {
+    margin-top: 10px;
+    background-color: #3a2d52;
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .profileLevelFill {
+    height: 100%;
+    background-color: #a066ff;
+    width: 60%;
+  }
+  
+  .profileCalendarCard {
+    background-color: #1e1537;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .calendarPlaceholder {
+    height: 200px;
+    background-color: #2b2240;
+    border-radius: 12px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 14px;
+  }
+  
+  .profileProgressCard,
+  .profileReflectionCard {
+    background-color: #1e1537;
+    border-radius: 16px;
+    padding: 20px;
+  }
+  
+  .profileProgressCard p {
+    margin: 8px 0;
+  }
+  
+  .profileReflectionCard p {
+    margin: 0;
+    color: #ccc;
+    font-size: 14px;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 1200px) {
+    .profileMainContainer {
+      grid-template-columns: 1fr;
+    }
+  
+    .profileCardSection {
+      flex-direction: column;
+    }
+  
+    .profileWelcomeCard {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profileWelcomeImage {
+      margin-top: 20px;
+      max-width: 120px;
+    }
+  
+    .profileSidebar,
+    .profileSidebarRight {
+      grid-column: 1 / -1;
+    }
+  }
+  
