@@ -7,14 +7,14 @@
 
 /* ---- Layout general ---- */
 
-:local(.navbarGrid) {
+:local(.journeyNavbarGrid) {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-:local(.journey_container) {
+:local(.journeyContainer) {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -24,7 +24,7 @@
     padding: 2rem;
 }
 
-:local(.content) {
+:local(.journeyContent) {
     display: flex;
     flex-direction: row;
     height: 100vh;
@@ -34,24 +34,7 @@
     margin-bottom: 6vh;
 }
 
-:local(.menu_month) {
-    width: 18vw;
-    height: 30vh;
-    min-width: 12rem;
-    background-color: #221833;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-:local(.menu_text p),
-:local(.menu_text h3) {
-    margin: 1rem 0 1.5rem 2rem;
-    cursor: pointer;
-}
-
-:local(.cards) {
+:local(.journeyCards) {
     display: flex;
     flex-direction: row;
     margin-left: 2rem;
@@ -59,7 +42,7 @@
     height: 30vh;
 }
 
-:local(.button) {
+:local(.journeyButton) {
     display: flex;
     flex-direction: row;
     gap: var(--gap-desktop);
@@ -68,9 +51,9 @@
 
 /* ---- Cards ---- */
 
-:local(.card1),
-:local(.card2),
-:local(.card3) {
+:local(.journeyCard1),
+:local(.journeyCard2),
+:local(.journeyCard3) {
     width: var(--card-size-desktop);
     height: var(--card-size-desktop);
     border-radius: 1rem;
@@ -78,21 +61,21 @@
     border: solid 1px #090313;
 }
 
-:local(.card1) {
+:local(.journeyCard1) {
     background-color: #6725D8;
 }
 
-:local(.card2) {
+:local(.journeyCard2) {
     background-color: #FB645C;
 }
 
-:local(.card3) {
+:local(.journeyCard3) {
     background-color: #4E465C;
 }
 
-:local(.card1:active),
-:local(.card2:active),
-:local(.card3:active) {
+:local(.journeyCard1:active),
+:local(.journeyCard2:active),
+:local(.journeyCard3:active) {
     box-shadow: none;
     transform: translateY(0.7rem);
 }
@@ -101,32 +84,23 @@
 
 @media (max-width: 768px) {
     /* Cambiar a layout vertical */
-    :local(.content),
-    :local(.button),
-    :local(.cards) {
+    :local(.journeyContent),
+    :local(.journeyButton),
+    :local(.journeyCards) {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-left: 0;
     }
 
-    :local(.button) {
+    :local(.journeyButton) {
         gap: var(--gap-mobile);
     }
 
-    :local(.card1),
-    :local(.card2),
-    :local(.card3) {
+    :local(.journeyCard1),
+    :local(.journeyCard2),
+    :local(.journeyCard3) {
         width: var(--card-size-mobile);
         height: var(--card-size-mobile);
-    }
-
-    :local(.menu_month) {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0;
-        width: 11rem;
-        min-width: 11rem;
     }
 }
