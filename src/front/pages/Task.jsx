@@ -77,8 +77,13 @@ const Task = () => {
                     <div className={styles.taskText}>
                         {randomContent.title}
                         {randomContent.description}
-                        <div className={styles.taskButtons}>
-                        
+                    </div>
+                    <div className={styles.taskButtons}>
+                        <div className={styles.taskAccept}>
+                            Accept
+                        </div>
+                        <div className={styles.taskDeny}>
+                            Deny
                         </div>
                     </div>
                 </div>

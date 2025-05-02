@@ -32,8 +32,9 @@
     width: 60%;
     display: flex;
     padding: 0rem 2rem;
-    align-items: center;
-    justify-content: start;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
     height: 100%;
 }
 
@@ -77,10 +78,46 @@
     background-color: #221833;
     padding: 2rem 2rem;
     width: 60%;
-    height: 20%;
+    height: 17%;
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
     gap: 10%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+:local(.taskButtons){
+    display: flex;
+    padding: 2rem 0rem;
+    gap: 5rem;
+    width: 60%;
+    justify-content: center;
+}
+
+:local(.taskAccept),
+:local(.taskDeny){
+    width: 10rem;
+    height: 5rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.7rem 0 rgba(9, 3, 19, 1);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #221833;
+}
+
+:local(.taskAccept:active),
+:local(.taskDeny:active) {
+    box-shadow: none;
+    transform: translateY(0.7rem);
+}
+
+:local(.taskAccept){
+    background-color: #5CFB7E;
+}
+
+:local(.taskDeny){
+    background-color: #F05E5E;
 }
