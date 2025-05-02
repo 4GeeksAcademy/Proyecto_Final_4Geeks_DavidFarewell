@@ -1,122 +1,150 @@
 import React from "react";
 import styles from "../assets/styles/ProfileMainPage.module.css";
+import avatarImg from "../assets/styles/images/Moti_Feliz.png";
+import genieImg from "../assets/styles/images/Moti_Feliz.png"; // Imagen de relleno
 
-const ProfileMainPage = () => {
-  const tasks = [
-    { name: "Watch a video", status: "done" },
-    { name: "Walk for 20 minutes", status: "done" },
-    { name: "Write your journal", status: "in-progress" },
-    { name: "Do a yoga class", status: "pending" },
-    { name: "Read for 20 minutes", status: "pending" },
-    { name: "Exercise for 30 minutes", status: "pending" },
-  ];
-
-  const achievements = new Array(12).fill("https://via.placeholder.com/40");
-
+export const ProfileMainPage = () => {
   return (
-    <div className={styles.ProfileMain_container}>
-      <div className={styles.ProfileMain_layoutGrid}>
-        {/* Profile Info */}
-        <div className={styles.ProfileMain_card}>
-          <p><strong>Name:</strong> David Castillo</p>
+    <div className={styles.container}>
+      <div className={styles.layoutGrid}>
+        {/* CARD 1: Profile Info */}
+        <div className={`${styles.card} ${styles.card1}`}>
+          <h4 className={styles.cardTitle}>
+            <strong>Name:</strong> David Castillo
+          </h4>
           <p><strong>Years:</strong> 29</p>
           <p><strong>Job:</strong> Architect</p>
           <p><strong>City:</strong> Barcelona</p>
-          <button className={styles.ProfileMain_editButton}><i className="fas fa-pen"></i></button>
+          <button className={styles.editButton}>✏️</button>
         </div>
 
-        {/* Tasks */}
-        <div className={styles.ProfileMain_card}>
-          <h3 className={styles.ProfileMain_cardTitle}>Today’s Tasks</h3>
-          <ul className={styles.ProfileMain_taskList}>
-            {tasks.map((task, i) => (
-              <li key={i} className={styles.ProfileMain_taskItem}>
-                <span>{task.name}</span>
-                <span className={`${styles.ProfileMain_statusDot} ${task.status === "done" ? styles.ProfileMain_statusDone : task.status === "in-progress" ? styles.ProfileMain_statusInProgress : styles.ProfileMain_statusPending}`} />
-              </li>
-            ))}
+        {/* CARD 2: Today’s Tasks */}
+        <div className={`${styles.card} ${styles.card2}`}>
+          <h4 className={styles.cardTitle}>Today’s Tasks</h4>
+          <ul className={styles.taskList}>
+            <li className={styles.taskItem}>
+              Watch a video <span className={`${styles.statusDot} ${styles.done}`} />
+            </li>
+            <li className={styles.taskItem}>
+              Walk for 20 minutes <span className={`${styles.statusDot} ${styles.done}`} />
+            </li>
+            <li className={styles.taskItem}>
+              Write your journal <span className={`${styles.statusDot} ${styles.inProgress}`} />
+            </li>
+            <li className={styles.taskItem}>
+              Do a yoga class <span className={`${styles.statusDot} ${styles.pending}`} />
+            </li>
+            <li className={styles.taskItem}>
+              Read for 20 minutes <span className={`${styles.statusDot} ${styles.pending}`} />
+            </li>
+            <li className={styles.taskItem}>
+              Exercise for 30 minutes <span className={`${styles.statusDot} ${styles.pending}`} />
+            </li>
           </ul>
-          <button className={styles.ProfileMain_contentButton}>ALL CONTENT</button>
+          <button className={styles.button}>ALL CONTENT</button>
         </div>
 
-        {/* Hero */}
-        <div className={styles.ProfileMain_heroCard}>
-          <div className={styles.ProfileMain_heroText}>
+        {/* CARD 3: Hero */}
+        <div className={styles.heroCard}>
+          <div className={styles.heroText}>
             <h2>Hello, <strong>David!</strong></h2>
             <p>Your inner journey continues today.</p>
             <p>Your path to a stronger, wiser, and more focused version of yourself begins with a single step.</p>
-            <button className={styles.ProfileMain_journeyButton}>See your journey</button>
+            <button className={styles.journeyButton}>See your journey</button>
           </div>
-          <img src="https://via.placeholder.com/120" alt="Genie" className={styles.ProfileMain_heroImage} />
+          <img src={genieImg} alt="Genie" className={styles.heroImage} />
         </div>
 
-        {/* Avatar */}
-        <div className={styles.ProfileMain_card}>
-          <div>
-            <img src="https://via.placeholder.com/60" alt="Avatar" className={styles.ProfileMain_avatarImage} />
-            <p><strong>David Castillo</strong></p>
-            <div className={styles.ProfileMain_levelBar}><div className={styles.ProfileMain_levelFill} /></div>
-            <p>Lvl 6</p>
+        {/* CARD 4: Avatar */}
+        <div className={`${styles.card} ${styles.card4}`}>
+          <div className={styles.avatarBlock}>
+            <img src={avatarImg} alt="Avatar" className={styles.avatarImage} />
+            <div>
+              <strong>David Castillo</strong>
+              <div className={styles.levelBar}>
+                <div className={styles.levelFill}></div>
+              </div>
+              <p>Lvl 6</p>
+            </div>
           </div>
         </div>
 
-        {/* Calendar */}
-        <div className={styles.ProfileMain_card}>
-          <div className={styles.ProfileMain_calendarHeader}>
-            <span>{"<"}</span>
-            <strong>May 2025</strong>
-            <span>{">"}</span>
+        {/* CARD 5: Calendar */}
+        <div className={`${styles.card} ${styles.card5}`}>
+          <div className={styles.calendarHeader}>
+            <span>&lt;</span>
+            <span>May 2025</span>
+            <span>&gt;</span>
           </div>
-          <div className={styles.ProfileMain_calendarGrid}>
+          <div className={styles.calendarGrid}>
             {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
-              <span key={`d-${i}`} className={styles.ProfileMain_calendarDay}>{d}</span>
+              <div key={i} className={styles.calendarDay}>{d}</div>
             ))}
-            {Array.from({ length: 35 }, (_, i) => (
-              <span
-                key={`date-${i}`}
-                className={`${styles.ProfileMain_calendarDate} ${i === 10 ? styles.ProfileMain_highlightedDate : ""}`}
+            {[...Array(31)].map((_, i) => (
+              <div
+                key={i}
+                className={`${styles.calendarDate} ${i === 6 ? styles.highlightedDate : ""}`}
               >
-                {i > 3 ? i - 3 : ""}
-              </span>
+                {i + 1}
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Stats */}
-        <div className={styles.ProfileMain_card}>
-          <h3 className={styles.ProfileMain_cardTitle}>Global Stats</h3>
-          <div className={styles.ProfileMain_statsGrid}>
-            <div><p className={styles.ProfileMain_statLabel}>Tasks completed</p><p className={styles.ProfileMain_statValue}>54</p></div>
-            <div><p className={styles.ProfileMain_statLabel}>Time in the app</p><p className={styles.ProfileMain_statValue}>23 days</p></div>
-            <div><p className={styles.ProfileMain_statLabel}>Daily missions</p><p className={styles.ProfileMain_statValue}>20</p></div>
-            <div><p className={styles.ProfileMain_statLabel}>Lorem Ipsum</p><p className={styles.ProfileMain_statValue}>Lorem Ipsum</p></div>
+        {/* CARD 6: Global Stats */}
+        <div className={`${styles.card} ${styles.card6}`}>
+          <h4 className={styles.cardTitle}>Global Stats</h4>
+          <div className={styles.statsGrid}>
+            <div>
+              <p className={styles.statLabel}>Tasks completed</p>
+              <p className={styles.statValue}>54</p>
+            </div>
+            <div>
+              <p className={styles.statLabel}>Time in the app</p>
+              <p className={styles.statValue}>23 days</p>
+            </div>
+            <div>
+              <p className={styles.statLabel}>Daily missions</p>
+              <p className={styles.statValue}>20</p>
+            </div>
+            <div>
+              <p className={styles.statLabel}>Lorem Ipsum</p>
+              <p className={styles.statValue}>Lorem Ipsum</p>
+            </div>
           </div>
         </div>
 
-        {/* Achievements */}
-        <div className={styles.ProfileMain_card}>
-          <div className={styles.ProfileMain_cardHeaderWithBtn}>
-            <h3>Achievements</h3>
-            <button className={styles.ProfileMain_seeAllBtn}>See all</button>
+        {/* CARD 7: Achievements */}
+        <div className={`${styles.card} ${styles.card7}`}>
+          <div className={styles.cardHeaderWithBtn}>
+            <h4 className={styles.cardTitle}>Achievements</h4>
+            <button className={styles.seeAllBtn}>See all</button>
           </div>
-          <div className={styles.ProfileMain_achievementsGrid}>
-            {achievements.map((src, i) => (
-              <img key={i} src={src} alt={`achievement-${i}`} className={styles.ProfileMain_achievementIcon} />
+          <div className={styles.achievementsGrid}>
+            {Array.from({ length: 15 }).map((_, i) => (
+              <img
+                key={i}
+                src={avatarImg}
+                alt={`achievement ${i + 1}`}
+                className={styles.achievementIcon}
+              />
             ))}
           </div>
         </div>
 
-        {/* Week progress */}
-        <div className={styles.ProfileMain_card}>
-          <h3 className={styles.ProfileMain_cardTitle}>Week’s progress</h3>
+        {/* CARD 8: Week’s progress */}
+        <div className={`${styles.card} ${styles.card8}`}>
+          <h4 className={styles.cardTitle}>Week’s progress</h4>
           <p>Missions</p>
-          <div className={styles.ProfileMain_levelBar}><div className={styles.ProfileMain_levelFill} /></div>
+          <div className={styles.levelBar}>
+            <div className={styles.levelFill}></div>
+          </div>
           <p>XP Gained: <strong>+560</strong></p>
         </div>
 
-        {/* Reflection */}
-        <div className={styles.ProfileMain_card}>
-          <h3 className={styles.ProfileMain_cardTitle}>Today’s Reflection</h3>
+        {/* CARD 9: Today’s Reflection */}
+        <div className={`${styles.card} ${styles.card9}`}>
+          <h4 className={styles.cardTitle}>Today’s Reflection</h4>
           <p>Pause. Feel. Choose your path for today.</p>
         </div>
       </div>

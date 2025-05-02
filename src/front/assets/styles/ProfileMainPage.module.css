@@ -1,71 +1,70 @@
-.ProfileMain_container {
-    width: 100dvw;
-    height: 100dvh;
+:local(.container) {
     background-color: #0b0a18;
-    font-family: "Poppins", sans-serif;
     color: white;
-    padding: 0;
-    margin: 0;
+    font-family: "Poppins", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    z-index: 0;
   }
   
-  .ProfileMain_layoutGrid {
-    width: 95vw;
-    height: 95vh;
+  :local(.layoutGrid) {
+    width: 100%;
+    max-width: 1600px; /* AUMENTADO */
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    gap: 1rem;
-    padding: 1rem;
-    overflow: hidden;
+    grid-template-rows: auto;
+    gap: 1rem; /* MÁS JUNTAS */
+    padding: 2rem 2.5rem; /* MÁS MARGEN LATERAL */
     box-sizing: border-box;
+    overflow: hidden;
   }
   
-  /* Card base */
-  .ProfileMain_card {
+  /* Cards */
+  :local(.card),
+  :local(.heroCard) {
     background-color: #1d172d;
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     position: relative;
-    min-width: 0;
-    min-height: 0;
     overflow: hidden;
   }
   
-  /* Grid order */
-  .ProfileMain_card:nth-child(1) { grid-column: span 2; }
-  .ProfileMain_card:nth-child(2) { grid-column: span 2; }
-  .ProfileMain_heroCard         { grid-column: span 6; display: flex; justify-content: space-between; align-items: center; padding: 2rem; background-color: #1d172d; border-radius: 1rem; overflow: hidden; }
-  .ProfileMain_card:nth-child(4){ grid-column: span 2; }
-  .ProfileMain_card:nth-child(5){ grid-column: span 4; }
-  .ProfileMain_card:nth-child(6){ grid-column: span 4; }
-  .ProfileMain_card:nth-child(7){ grid-column: span 4; }
-  .ProfileMain_card:nth-child(8){ grid-column: span 6; }
-  .ProfileMain_card:nth-child(9){ grid-column: span 6; }
-  
-  /* Hero */
-  .ProfileMain_heroText h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  :local(.card1) { grid-column: span 2; }
+  :local(.card2) { grid-column: span 2; }
+  :local(.heroCard) {
+    grid-column: span 6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    overflow: hidden;
   }
-  .ProfileMain_heroImage {
-    width: 120px;
-    height: auto;
-    max-width: 100%;
-  }
+  :local(.card4) { grid-column: span 2; }
+  :local(.card5) { grid-column: span 4; }
+  :local(.card6) { grid-column: span 4; }
+  :local(.card7) { grid-column: span 4; }
+  :local(.card8) { grid-column: span 6; }
+  :local(.card9) { grid-column: span 6; }
   
-  /* Texts */
-  .ProfileMain_cardTitle {
+  :local(.cardTitle) {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
   }
   
-  .ProfileMain_editButton {
+  :local(.editButton) {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -76,134 +75,182 @@
     cursor: pointer;
   }
   
-  .ProfileMain_taskList {
+  /* Task list */
+  :local(.taskList) {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  .ProfileMain_taskItem {
+  :local(.taskItem) {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
   }
-  .ProfileMain_statusDot {
+  :local(.statusDot) {
     width: 12px;
     height: 12px;
     border-radius: 50%;
+    display: inline-block;
   }
-  .ProfileMain_statusDone { background-color: #4caf50; }
-  .ProfileMain_statusInProgress { background-color: #ffc107; }
-  .ProfileMain_statusPending { background-color: #f44336; }
+  :local(.done) { background-color: #4caf50; }
+  :local(.inProgress) { background-color: #ffc107; }
+  :local(.pending) { background-color: #f44336; }
   
-  .ProfileMain_contentButton,
-  .ProfileMain_journeyButton,
-  .ProfileMain_seeAllBtn {
+  :local(.button),
+  :local(.journeyButton),
+  :local(.seeAllBtn) {
+    margin-top: 1rem;
     background-color: #ff5c5c;
-    color: white;
     border: none;
+    color: white;
     padding: 0.6rem 1rem;
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 1rem;
+    display: block;
+    width: 100%;
   }
   
-  /* Avatar & Progress */
-  .ProfileMain_avatarImage {
+  /* Hero section */
+  :local(.heroText h2) {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  :local(.heroText p) {
+    margin: 0.2rem 0;
+  }
+  :local(.heroImage) {
+    width: 120px;
+    height: auto;
+    border-radius: 1rem;
+    max-width: 100%;
+  }
+  
+  /* Avatar */
+  :local(.avatarBlock) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  :local(.avatarImage) {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
   }
-  .ProfileMain_levelBar {
+  
+  /* Level Bar */
+  :local(.levelBar) {
     background-color: #333;
     height: 10px;
     border-radius: 5px;
+    margin: 0.3rem 0;
     overflow: hidden;
     width: 100%;
-    margin: 0.3rem 0;
   }
-  .ProfileMain_levelFill {
+  :local(.levelFill) {
     height: 100%;
     background-color: #a066ff;
     width: 60%;
   }
   
   /* Calendar */
-  .ProfileMain_calendarGrid {
+  :local(.calendarHeader) {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  :local(.calendarGrid) {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 0.3rem;
+    gap: 0.5rem;
     text-align: center;
   }
-  .ProfileMain_calendarDay {
+  :local(.calendarDay) {
     font-weight: bold;
     color: #ccc;
   }
-  .ProfileMain_calendarDate {
+  :local(.calendarDate) {
     background-color: #2e2e2e;
     padding: 0.5rem;
     border-radius: 0.5rem;
     color: #fff;
   }
-  .ProfileMain_highlightedDate {
+  :local(.highlightedDate) {
     background-color: #ff5c5c;
   }
   
   /* Stats */
-  .ProfileMain_statsGrid {
+  :local(.statsGrid) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    margin-top: 1rem;
   }
-  .ProfileMain_statLabel {
+  :local(.statLabel) {
     font-size: 0.9rem;
     color: #ccc;
   }
-  .ProfileMain_statValue {
+  :local(.statValue) {
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
   }
   
   /* Achievements */
-  .ProfileMain_achievementsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 40px);
-    gap: 0.3rem;
-  }
-  .ProfileMain_achievementIcon {
-    width: 40px;
-    height: 40px;
-    border-radius: 0.3rem;
-    object-fit: cover;
-  }
-  .ProfileMain_cardHeaderWithBtn {
+  :local(.cardHeaderWithBtn) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
+  }
+  :local(.achievementsGrid) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 0.5rem;
+    justify-items: center;
+  }
+  :local(.achievementIcon) {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 0.3rem;
   }
   
+  /* Media Queries */
   @media (max-width: 1100px) {
-    .ProfileMain_layoutGrid {
+    :local(.layoutGrid) {
       grid-template-columns: repeat(6, 1fr);
-      height: auto;
+      padding: 1rem;
     }
-    .ProfileMain_heroCard {
+    :local(.heroCard) {
       flex-direction: column;
+      gap: 1rem;
       text-align: center;
     }
   }
+  
   @media (max-width: 768px) {
-    .ProfileMain_layoutGrid {
+    :local(.layoutGrid) {
       grid-template-columns: 1fr;
-      height: auto;
-      gap: 0.5rem;
-      padding: 0.5rem;
+      padding: 1rem;
     }
-    .ProfileMain_heroCard {
+    :local(.heroCard) {
       flex-direction: column;
       gap: 1rem;
+      text-align: center;
+    }
+    :local(.card1),
+    :local(.card2),
+    :local(.card4),
+    :local(.card5),
+    :local(.card6),
+    :local(.card7),
+    :local(.card8),
+    :local(.card9) {
+      grid-column: span 1;
     }
   }
   
