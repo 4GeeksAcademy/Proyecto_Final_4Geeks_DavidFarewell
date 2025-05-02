@@ -66,9 +66,7 @@ const Task = () => {
 
     return (
         <div className={styles.taskContainer}>
-            <div className={styles.taskNavbar}>
                 <Navbar />
-            </div>
             <div className={styles.taskContent}>
                 <div className={styles.taskPhoto}>
                     {randomContent.img}
