@@ -113,23 +113,23 @@ const achievements = [
 
 const Achievements = () =>{
     return(
-        <div className={styles.container}>
-            <div className={styles.navbarGrid}>
+        <div className={styles.achievementsContainer}>
+            <div className={styles.achievementsNavbarGrid}>
                 <Navbar />
             </div>
-            <div className={styles.grid}>
+            <div className={styles.achievementsGrid}>
                 {achievements.map((achievement) => (
                     <div
-                    className={`${styles.card} ${!achievement.unlocked ? styles.lockedCard : ''}`}
+                    className={`${styles.achievementsCard} ${!achievement.unlocked ? styles.achievementsLockedCard : ''}`}
                     key={achievement.id}
                     >
-                    <div className={styles.icon}>{achievement.icon}</div>
-                    <div className={styles.cardText}>
-                        <div className={styles.title}>{achievement.title}</div>
-                        <div className={styles.description}>{achievement.description}</div>
+                    <div className={styles.achievementsIcon}>{achievement.icon}</div>
+                    <div className={styles.achievementsCardText}>
+                        <div className={styles.achievementsTitle}>{achievement.title}</div>
+                        <div className={styles.achievementsDescription}>{achievement.description}</div>
                     </div>
                     {!achievement.unlocked && (
-                        <div className={styles.locked}><i className="fa-solid fa-lock"></i></div>
+                        <div className={styles.achievementsLocked}><i className="fa-solid fa-lock"></i></div>
                     )}
                     </div>
                 ))}

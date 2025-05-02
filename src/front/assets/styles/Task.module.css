@@ -1,0 +1,48 @@
+:local(.taskContainer){
+    width: 100vw;
+    height: 100vh;
+    background-color: #130B21;
+}
+
+:local(.taskNavbar){
+    position: relative;
+}
+
+:local(.taskContent){
+    display: flex;
+    height: 90vh;
+}
+
+:local(.taskPhoto){
+    width: 40%;
+    height: 90vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+:local(.taskPhoto img){
+    height: 75%;
+    width: 75%;
+    border-radius: 1rem;
+}
+
+:local(.taskTextContainer){
+    width: 60%;
+    display: flex;
+    padding: 0rem 2rem;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+}
+
+:local(.taskText){
+    background-color: #221833;
+    padding: 2rem 2rem;
+    width: 60%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    gap: 10%;
+}
