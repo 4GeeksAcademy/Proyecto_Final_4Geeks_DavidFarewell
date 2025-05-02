@@ -25,6 +25,7 @@
     height: 75%;
     width: 75%;
     border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 :local(.taskTextContainer){
@@ -40,9 +41,46 @@
     background-color: #221833;
     padding: 2rem 2rem;
     width: 60%;
-    height: 30%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
     gap: 10%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+:local(.task){
+    background-color: #221833;
+    padding: 2rem 2rem;
+    width: 60%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    gap: 10%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+:local(.taskText){
+    background-color: #221833;
+    padding: 2rem 2rem;
+    width: 60%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    gap: 10%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+:local(.taskText){
+    background-color: #221833;
+    padding: 2rem 2rem;
+    width: 60%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    gap: 10%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }

@@ -51,18 +51,18 @@ const OnboardingText = () => {
   };
 
   return (
-    <div className={styles.page}>
-      <div className={styles['moty_text']}>
-        <div className={styles['moty_img']}>
+    <div className={styles.onboardingPage}>
+      <div className={styles.onboardingMotyText}>
+        <div className={styles.onboardingMotyImg}>
           <img src={steps[index].img} alt="moty" />
         </div>
-        <div className={styles.text}>
+        <div className={styles.onboardingText}>
           <h2>{steps[index].h2}</h2>
           <p>{steps[index].p}</p>
         </div>
       </div>
-        <div className={styles['button_space']}>
-          <div className={styles['next_button']} onClick={handleNext}>
+        <div className={styles.onboardingButtonSpace}>
+          <div className={styles.onboardingNextButton} onClick={handleNext}>
             {button_content[index].title}
           </div>
         </div>

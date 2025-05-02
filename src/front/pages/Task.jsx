@@ -77,8 +77,8 @@ const Task = () => {
                     <div className={styles.taskText}>
                         {randomContent.title}
                         {randomContent.description}
-                        <div className={}>
-
+                        <div className={styles.taskButtons}>
+                        
                         </div>
                     </div>
                 </div>
