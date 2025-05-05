@@ -11,21 +11,24 @@
 :local(.journeyContainer) {
   position: relative;
   z-index: 1;
-  background: transparent; /* ya no hace falta color de fondo sólido */
+  background: transparent;
   width: 100vw;
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem; /* Para evitar desbordes laterales en móviles */
+  box-sizing: border-box;
 }
   
-  :local(.journeyCalendarButtons) {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-    width: 100vw;
-    max-width: 35%;
-  }
+:local(.journeyCalendarButtons) {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  width: 100%;
+  max-width: 35%;
+  justify-items: center;
+}
   
 :local(.journeyButton) {
   width: 150px; /* Tamaño fijo del botón */
@@ -57,8 +60,8 @@
   content: "";
   position: absolute;
   top: 25%;
-  left: 38%;
-  width: 24%;
+  left: 35%;
+  width: 30%;
   height: 50%;
   border-radius: 20%;
   background: rgba(0, 0, 0, 0.2);
@@ -69,12 +72,12 @@
 
 :local(.journeyButton) h1 {
   margin: 0; /* Elimina el margen por defecto */
-  font-size: 0rem;
+  font-size: 1rem;
   font-weight: bold;
   color: white;
+  opacity: 0.5;
   background: none;
   box-shadow: none;
-  padding: 0;
   border-radius: 0;
 }
   
@@ -82,11 +85,24 @@
   @media (max-width: 1024px) {
     :local(.journeyCalendarButtons) {
       grid-template-columns: repeat(3, 1fr);
+      max-width: 60%;
     }
   }
   
   /* Móviles */
   @media (max-width: 768px) {
+    :local(.journeyCalendarButtons) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 80%;
+    }
+  }
 
+  @media (max-width: 480px) {
+    :local(.journeyCalendarButtons) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+      max-width: 90%;
+    }
   }
   
