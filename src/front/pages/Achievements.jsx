@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../assets/styles/Achievements.module.css";
 import { style } from "framer-motion/client";
 import Navbar from "../components/Navbar"
+import Particles from "../components/Particles";
 
 const achievements = [
     {
@@ -113,6 +114,18 @@ const achievements = [
 
 const Achievements = () =>{
     return(
+        <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+        <Particles
+          particleColors={['#6725D8', '#6725D8']}
+          particleCount={300}
+          particleSpread={5}
+          speed={0.2}
+          particleBaseSize={50}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+        <div style={{ position: "relative", zIndex: 1 }}>
         <div className={styles.achievementsContainer}>
             <div className={styles.achievementsNavbarGrid}>
                 <Navbar />
@@ -134,7 +147,9 @@ const Achievements = () =>{
                     </div>
                 ))}
             </div>
+            </div>
         </div>
+    </div>
     )
 }
 

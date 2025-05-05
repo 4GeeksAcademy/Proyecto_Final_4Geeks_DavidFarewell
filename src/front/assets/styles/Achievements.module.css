@@ -1,7 +1,7 @@
 /* Achievements.module.css */
 
 :local(.achievementsContainer) {
-    background-color: #0b0a18;
+    background-color: transparent;
     color: F5F5F5;
     font-family: "Poppins", sans-serif;
     width: 100vw;

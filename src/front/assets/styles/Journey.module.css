@@ -1,106 +1,92 @@
-:root {
-    --card-size-desktop: 12vw;
-    --card-size-mobile: 8rem;
-    --gap-desktop: 3vw;
-    --gap-mobile: 1.5rem;
+:local(.backgroundWrapper) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none; /* Para que no bloquee clics */
 }
-
-/* ---- Layout general ---- */
-
-:local(.journeyNavbarGrid) {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
 :local(.journeyContainer) {
+  position: relative;
+  z-index: 1;
+  background: transparent; /* ya no hace falta color de fondo sólido */
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+  :local(.journeyCalendarButtons) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background-color: #130B21;
-    flex-direction: column;
-    padding: 2rem;
-}
-
-:local(.journeyContent) {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 6vh;
-}
-
-:local(.journeyCards) {
-    display: flex;
-    flex-direction: row;
-    margin-left: 2rem;
-    gap: var(--gap-desktop);
-    height: 30vh;
-}
-
+    max-width: 35%;
+  }
+  
 :local(.journeyButton) {
-    display: flex;
-    flex-direction: row;
-    gap: var(--gap-desktop);
-    margin-top: 4vh;
+  width: 150px; /* Tamaño fijo del botón */
+  height: 150px; /* Aseguramos que sea un círculo */
+  position: relative;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+  box-shadow:
+    inset -4px -4px 8px rgba(255, 255, 255, 0.3),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+    0 8px 0 rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* ---- Cards ---- */
-
-:local(.journeyCard1),
-:local(.journeyCard2),
-:local(.journeyCard3) {
-    width: var(--card-size-desktop);
-    height: var(--card-size-desktop);
-    border-radius: 1rem;
-    box-shadow: 0 0.7rem 0 rgba(9, 3, 19, 1);
-    border: solid 1px #090313;
+:local(.journeyButton):hover {
+  transform: translateY(-5px);
+  box-shadow:
+    inset -4px -4px 8px rgba(255, 255, 255, 0.3),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+    0 12px 0 rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
-:local(.journeyCard1) {
-    background-color: #6725D8;
+:local(.journeyButton)::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 38%;
+  width: 24%;
+  height: 50%;
+  border-radius: 20%;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow:
+    inset -2px -2px 3px rgba(255, 255, 255, 0.4),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 
-:local(.journeyCard2) {
-    background-color: #FB645C;
+:local(.journeyButton) h1 {
+  margin: 0; /* Elimina el margen por defecto */
+  font-size: 0rem;
+  font-weight: bold;
+  color: white;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
 }
+  
 
-:local(.journeyCard3) {
-    background-color: #4E465C;
-}
-
-:local(.journeyCard1:active),
-:local(.journeyCard2:active),
-:local(.journeyCard3:active) {
-    box-shadow: none;
-    transform: translateY(0.7rem);
-}
-
-/* ---- MEDIA QUERIES ---- */
-
-@media (max-width: 768px) {
-    /* Cambiar a layout vertical */
-    :local(.journeyContent),
-    :local(.journeyButton),
-    :local(.journeyCards) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0;
+  @media (max-width: 1024px) {
+    :local(.journeyCalendarButtons) {
+      grid-template-columns: repeat(3, 1fr);
     }
+  }
+  
+  /* Móviles */
+  @media (max-width: 768px) {
 
-    :local(.journeyButton) {
-        gap: var(--gap-mobile);
-    }
-
-    :local(.journeyCard1),
-    :local(.journeyCard2),
-    :local(.journeyCard3) {
-        width: var(--card-size-mobile);
-        height: var(--card-size-mobile);
-    }
-}
+  }
+  

@@ -2,6 +2,8 @@ import React from "react";
 import styles from "../assets/styles/Task.module.css";
 import { h4, style } from "framer-motion/client";
 import Navbar from "../components/Navbar"
+import AnimatedPage from "../components/AnimatedPage";
+import Particles from "../components/Particles";
 
 const content = [
     {
@@ -65,6 +67,19 @@ const Task = () => {
     const randomContent = content[Math.floor(Math.random() * content.length)];
 
     return (
+        <AnimatedPage>
+        <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
+        <Particles
+          particleColors={['#6725D8', '#6725D8']}
+          particleCount={300}
+          particleSpread={5}
+          speed={0.2}
+          particleBaseSize={50}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+        <div style={{ position: "relative", zIndex: 1 }}>
         <div className={styles.taskContainer}>
                 <Navbar />
             <div className={styles.taskContent}>
@@ -86,7 +101,10 @@ const Task = () => {
                     </div>
                 </div>
             </div>
+            </div>
+            </div>
         </div>
+        </AnimatedPage>
     );
 };
 

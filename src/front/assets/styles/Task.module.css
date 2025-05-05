@@ -1,7 +1,9 @@
+
 :local(.taskContainer){
     width: 100vw;
     height: 100vh;
-    background-color: #130B21;
+    background-color: transparent;
+    z-index: 1;
   }
   
   :local(.taskContent){
