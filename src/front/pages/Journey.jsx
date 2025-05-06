@@ -8,7 +8,7 @@ import Particles from "../components/Particles";
 const shuffleArray = (arr) => {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]]; // Intercambiar los elementos
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
 };
@@ -21,19 +21,17 @@ const Journey = () => {
     const savedNumbers = localStorage.getItem("shuffledNumbers");
 
     if (savedNumbers) {
-      // Si ya existen en localStorage, los usamos
       setNumbers(JSON.parse(savedNumbers));
     } else {
-      // Si no existen, generamos y guardamos en localStorage
       const shuffledNumbers = shuffleArray(Array.from({ length: 16 }, (_, i) => i + 1));
       setNumbers(shuffledNumbers);
-      localStorage.setItem("shuffledNumbers", JSON.stringify(shuffledNumbers)); // Guardar en localStorage
+      localStorage.setItem("shuffledNumbers", JSON.stringify(shuffledNumbers));
     }
   }, []);
 
   const handleClick = (num) => {
     if (num === currentClickedNumber) {
-      setCurrentClickedNumber((prev) => prev + 1); // Avanzar al siguiente número
+      setCurrentClickedNumber((prev) => prev + 1);
     }
   };
 
@@ -54,24 +52,36 @@ const Journey = () => {
           <Navbar />
           <div className={styles.journeyContainer}>
             <div className={styles.journeyCalendarButtons}>
-              {numbers.map((num) => (
-                <div
-                  key={num}
-                  className={styles.journeyButton}
-                  style={{
-                    background:
-                      num === currentClickedNumber
-                        ? "radial-gradient(circle at 30% 30%, #FF8F84, #FB645C)" // Activo
-                        : num < currentClickedNumber
-                        ? "radial-gradient(circle at 30% 30%, #98FFD0, #5CFB7E)" // Completado
-                        : "radial-gradient(circle at 30% 30%, #7E768A, #4E465C)", // Bloqueado
-                    cursor: num === currentClickedNumber ? "pointer" : "not-allowed",
-                  }}
-                  onClick={() => handleClick(num)}
-                >
-                  <h1>{num}</h1>
-                </div>
-              ))}
+              {numbers.map((num) => {
+                const isCurrent = num === currentClickedNumber;
+                const isCompleted = num < currentClickedNumber;
+                const isLocked = num > currentClickedNumber;
+
+                const background = isCurrent
+                  ? "radial-gradient(circle at 30% 30%, #FF8F84, #FB645C)"
+                  : isCompleted
+                  ? "radial-gradient(circle at 30% 30%, #98FFD0, #5CFB7E)"
+                  : "radial-gradient(circle at 30% 30%, #7E768A, #4E465C)";
+
+                return (
+                  <div
+                    key={num}
+                    className={`${styles.journeyButton} ${isCurrent ? styles.flipEnabled : ""}`}
+                    onClick={() => handleClick(num)}
+                    style={{
+                      background,
+                      cursor: isCurrent ? "pointer" : "not-allowed",
+                    }}
+                  >
+                    <div className={styles.cardFront}>
+                      <h1>{num}</h1>
+                    </div>
+                    <div className={styles.cardBack}>
+                      <img src="src/front/assets/styles/images/MISSION_PODCAST_ROSITA.webp" alt="MotyActive" />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -81,3 +91,4 @@ const Journey = () => {
 };
 
 export default Journey;
+

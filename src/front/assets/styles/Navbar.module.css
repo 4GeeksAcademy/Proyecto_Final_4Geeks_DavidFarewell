@@ -1,4 +1,4 @@
-:local(.navbar) {
+:local(.navbar2) {
   width: 100vw;
   height: 7vh;
   background-color: #040404;
@@ -7,10 +7,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  position: relative; /* Asegura que el menú hamburguesa esté por encima */
+  position: relative;
 }
 
-:local(.navbarOpen) {
+:local(.navbar2Open) {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -18,58 +18,68 @@
   top: 0;
   left: 0;
   background-color: #0a030f;
-  z-index: 1000; /* Asegura que el menú esté por encima de todo */
+  z-index: 1000;
 }
 
-:local(.navbarLogo) {
+:local(.navbar2Logo) {
   margin-left: 5%;
   cursor: pointer;
 }
 
-:local(.navbarUp:hover){
+:local(.navbar2Up:hover){
   color: #a066ff;
 }
 
-:local(.navbarLogo h2) {
+:local(.navbar2Logo h2) {
   font-size: 2rem;
 }
 
-:local(.navbarText) {
+:local(.navbar2Text) {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 4rem;
 }
 
-:local(.navbar a){
+:local(.navbar2 a) {
   text-decoration: none;
 }
 
-:local(.navbar p){
+:local(.navbar2 p) {
   cursor: pointer;
   font-size: 16px;
-  font-weight:600;
+  font-weight: 600;
 }
 
-:local(.navbar p:hover){
-  color: #B1A7E1
+:local(.navbar2 p:hover) {
+  color: #b384ff
 }
 
-:local(.navbarProfile) {
+:local(.navbar2Profile) {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-right: 5%;
 }
 
-:local(.navbarImage) {
+:local(.navbar2ProfileContent) {
+  gap: 0rem; /* Ajusta el espacio entre los elementos */
+  margin: 0; /* Asegúrate de que no haya márgenes adicionales */
+}
+
+:local(.navbar2LevelText) {
+  margin-bottom: 0; /* Elimina cualquier margen debajo de este texto */
+}
+
+:local(.navbar2Image) {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer; /* Cambié esto para indicar que la imagen ahora es clickeable */
 }
 
-:local(.navbarLevelBar) {
+:local(.navbar2LevelBar) {
   background-color: #333;
   height: 10px;
   border-radius: 5px;
@@ -78,36 +88,41 @@
   width: 100%;
 }
 
-:local(.navbarLevelFill) {
+:local(.navbar2LevelFill) {
   height: 100%;
   background-color: #a066ff;
   width: 60%;
 }
 
-:local(.dropdown) {
+:local(.navbar2XP) {
+  margin-top: 0; /* Elimina el margen superior de "200/1000" */
+}
+
+:local(.navbar2Dropdown) {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-:local(.dropdownMenu) {
-  width: max-content; /* ajusta al contenido */
-  min-width: 10rem;   /* ancho mínimo opcional */
+:local(.navbar2DropdownMenu) {
+  width: max-content;
+  min-width: 10rem;
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%); /* centra horizontalmente */
+  transform: translateX(-50%);
   font-size: 1rem;
   background-color: #040404;
   padding: 0.5rem 0.5rem;
-  border-radius: 0 1rem 1rem 1rem;
+  border-radius: 1rem;
   z-index: 999;
   display: flex;
   gap: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: solid 1px #a066ff;
 }
 
-:local(.dropdownMenu p) {
+:local(.navbar2DropdownMenu p) {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -117,19 +132,19 @@
   transition: background-color 0.2s;
 }
 
-:local(.hamburgerMenu) {
+:local(.navbar2HamburgerMenu) {
   display: none;
   flex-direction: column;
   gap: 5px;
 }
 
-:local(.hamburgerIcon) {
+:local(.navbar2HamburgerIcon) {
   width: 30px;
   height: 4px;
   background-color: white;
 }
 
-:local(.mobileMenu) {
+:local(.navbar2MobileMenu) {
   position: fixed;
   top: 0;
   left: 0;
@@ -140,10 +155,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* Hace que el menú esté por encima de otros elementos */
+  z-index: 1000;
 }
 
-:local(.closeButton) {
+:local(.navbar2CloseButton) {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -152,69 +167,68 @@
   cursor: pointer;
 }
 
-:local(.navbarProfile) {
-  display: flex;
-  align-items: center;
-  gap: 0rem;
-  margin-right: 5%;
-}
-
-:local(.navbarProfileContent) {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  color: white;
-  font-size: 14px;
-  line-height: 1; /* reduce espacio vertical */
-  gap: 2px; /* ajusta el espacio entre elementos */
-}
-
-:local(.navbarLevelText) {
-  font-weight: bold;
-  margin-bottom:0rem;
-}
-
-:local(.navbarLevelBar) {
-  background-color: #333;
-  height: 8px; /* un poco más delgada */
-  border-radius: 5px;
-  overflow: hidden;
-  width: 100%;
-}
-
-:local(.navbarXP) {
-  font-size: 12px;
-  color: #aaa;
-  margin-top: 2px; /* opcional */
-}
-
-:local(.mobileLinks) {
+:local(.navbar2ProfileDropdown) {
+  position: absolute;
+  top: 100%;
+  right: 4%;
+  transform: translateX(-50%);
+  background-color: #040404;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  border: solid 1px #a066ff;
+  z-index:2;
 }
 
-:local(.mobileLinks p) {
+:local(.navbar2ProfileDropdown p) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;  /* Aseguramos que todos los párrafos dentro del dropdown son clickeables */
+  transition: color 0.3s, background-color 0.3s;  /* Para transición suave en el color y fondo */
+}
+
+:local(.navbar2ProfileDropdown p:hover) {
+  color: #b384ff;  /* Cambio de color */
+}
+
+:local(.navbar2LogoutButton) {
+  background-color: #040404;
   color: white;
-  font-size: 1.5rem;
-  margin: 1rem 0;
+  border: none;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+:local(.navbar2LogoutButton:hover) {
+  color: #b384ff;
 }
 
 @media (max-width: 1024px) {
-  :local(.navbarText) {
+  :local(.navbar2Text) {
     display: none;
   }
 
-  :local(.navbarLogo) {
+  :local(.navbar2Logo) {
     display: none;
   }
 
-  :local(.navbarProfile) {
+  :local(.navbar2Profile) {
     display: none;
   }
 
-  :local(.hamburgerMenu) {
+  :local(.navbar2HamburgerMenu) {
     display: flex;
   }
 }
