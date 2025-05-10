@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../assets/styles/EditProfile.module.css";
 import avatarImg from "../assets/styles/images/Moti_Feliz.png";
 import Particles from "../components/Particles";
@@ -7,6 +7,9 @@ import Navbar from "../components/Navbar";
 
 const EditProfile = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const prevPath = useRef(location.state?.from || "/profilemainpage");
+
   const [profile, setProfile] = useState({
     username: "",
     firstName: "",
@@ -62,6 +65,14 @@ const EditProfile = () => {
     navigate("/profilemainpage");
   };
 
+  const handleCancel = () => {
+    navigate(prevPath.current);
+  };
+
+  const handleClose = () => {
+    navigate(prevPath.current);
+  };
+
   if (loading) return <div className={styles.editProfileLoading}>Cargando...</div>;
 
   return (
@@ -76,6 +87,9 @@ const EditProfile = () => {
         alphaParticles={false}
         disableRotation={false}
       />
+      <button className={styles.editProfileClose} onClick={handleClose} aria-label="Cerrar">
+        ×
+      </button>
       <div style={{ position: "relative", zIndex: 1 }}>
         <Navbar />
         <div className={styles.editProfileContainer}>
@@ -189,7 +203,7 @@ const EditProfile = () => {
                 <button 
                   type="button" 
                   className={`${styles.editProfileButton} ${styles.editProfileCancelButton}`}
-                  onClick={() => navigate("/profilemainpage")}
+                  onClick={handleCancel}
                 >
                   Cancelar
                 </button>
@@ -197,7 +211,7 @@ const EditProfile = () => {
                   type="submit" 
                   className={`${styles.editProfileButton} ${styles.editProfileSaveButton}`}
                 >
-                  Guardar Cambios
+                  Confirmar cambios
                 </button>
               </div>
             </form>
