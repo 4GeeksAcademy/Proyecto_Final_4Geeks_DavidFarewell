@@ -7,6 +7,7 @@ import { Profile } from "./pages/Profile";
 import Landing from "./pages/Landing";
 import Journey from "./pages/Journey";
 import ProfileMainPage from "./pages/ProfileMainPage";
+import EditProfile from "./pages/EditProfile";
 import { Layout } from "./pages/Layout";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -47,6 +48,10 @@ export const router = createBrowserRouter(
 
       <Route path="profilemainpage" element={
         DEV_MODE ? <ProfileMainPage /> : <PrivateRoute><ProfileMainPage /></PrivateRoute>
+      } />
+
+      <Route path="edit-profile" element={
+        DEV_MODE ? <EditProfile /> : <PrivateRoute><EditProfile /></PrivateRoute>
       } />
 
       <Route path="layout" element={
