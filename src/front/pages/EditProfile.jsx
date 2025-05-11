@@ -16,6 +16,7 @@ const EditProfile = () => {
     lastName: "",
     age: "",
     country: "",
+    city: "",
     hobbies: "",
     avatar: ""
   });
@@ -26,7 +27,13 @@ const EditProfile = () => {
     { id: 1, src: avatarImg },
     { id: 2, src: avatarImg },
     { id: 3, src: avatarImg },
-    { id: 4, src: avatarImg }
+    { id: 4, src: avatarImg },
+    { id: 5, src: avatarImg },
+    { id: 6, src: avatarImg },
+    { id: 7, src: avatarImg },
+    { id: 8, src: avatarImg },
+    { id: 9, src: avatarImg },
+    { id: 10, src: avatarImg }
   ];
 
   useEffect(() => {
@@ -35,7 +42,8 @@ const EditProfile = () => {
       firstName: "David",
       lastName: "Castillo",
       age: "29",
-      country: "Barcelona",
+      country: "España",
+      city: "Barcelona",
       hobbies: "Arquitectura, Diseño, Programación",
       avatar: avatarImg
     });
@@ -183,21 +191,36 @@ const EditProfile = () => {
                     value={profile.country}
                     onChange={handleInputChange}
                     className={styles.editProfileInput}
+                    placeholder="España"
                   />
                 </div>
                 <div className={styles.editProfileInputGroup}>
-                  <label htmlFor="hobbies" className={styles.editProfileLabel}>
-                    Hobbies
+                  <label htmlFor="city" className={styles.editProfileLabel}>
+                    Ciudad
                   </label>
-                  <textarea
-                    id="hobbies"
-                    name="hobbies"
-                    value={profile.hobbies}
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    value={profile.city}
                     onChange={handleInputChange}
-                    className={`${styles.editProfileInput} ${styles.editProfileTextarea}`}
-                    placeholder="Describe tus hobbies e intereses..."
+                    className={styles.editProfileInput}
+                    placeholder="Barcelona"
                   />
                 </div>
+              </div>
+              <div className={styles.editProfileHobbiesFullWidth}>
+                <label htmlFor="hobbies" className={styles.editProfileLabel}>
+                  Hobbies
+                </label>
+                <textarea
+                  id="hobbies"
+                  name="hobbies"
+                  value={profile.hobbies}
+                  onChange={handleInputChange}
+                  className={`${styles.editProfileInput} ${styles.editProfileTextarea}`}
+                  placeholder="Describe tus hobbies e intereses..."
+                />
               </div>
               <div className={styles.editProfileButtonGroup}>
                 <button 
