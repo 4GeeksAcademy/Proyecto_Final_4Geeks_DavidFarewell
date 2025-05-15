@@ -1,0 +1,121 @@
+.carousel {
+  position: relative;
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 100px,
+    black calc(100% - 100px),
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 100px,
+    black calc(100% - 100px),
+    transparent
+  );
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  aspect-ratio: 5/6;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-size: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 10px;
+}
+
+.nextButton {
+  right: 10px;
+}
+
+/* Contenedores de degradado */
+.carousel::before,
+.carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel::before {
+  left: 50px;
+  background: linear-gradient(
+    to right,
+    #1a1625,
+    transparent
+  );
+}
+
+.carousel::after {
+  right: 50px;
+  background: linear-gradient(
+    to left,
+    #1a1625,
+    transparent
+  );
+} 
