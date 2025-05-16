@@ -9,6 +9,7 @@ const App = () => {
     const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
     return (
+        
         <ScrollToTop>
             {/* Fondo ONDAS solo en login/register */}
             {isAuthPage && <div className="fixed-bg" />}
@@ -24,3 +25,4 @@ const App = () => {
 };
 
 export default App;
+
