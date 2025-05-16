@@ -65,6 +65,7 @@ const EditProfile = () => {
     { id: 19, src: avatar19 },
     { id: 20, src: avatar20 },
   ];
+  
 
   useEffect(() => {
     setProfile({
