@@ -178,6 +178,6 @@ const EditProfile = () => {
       </div>
     </div>
   );
-};
+};/**/
 
 export default EditProfile;
